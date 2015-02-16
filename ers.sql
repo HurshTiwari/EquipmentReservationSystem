@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 14, 2015 at 06:18 PM
+-- Generation Time: Feb 16, 2015 at 06:10 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -19,6 +19,34 @@ SET time_zone = "+00:00";
 --
 -- Database: `ers`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `addusers`
+--
+
+CREATE TABLE IF NOT EXISTS `addusers` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `password` varchar(500) NOT NULL,
+  `email` varchar(100) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `tempaddress` text,
+  `peraddress` text,
+  `phoneno` varchar(10) DEFAULT NULL,
+  `rollno` varchar(9) DEFAULT NULL,
+  PRIMARY KEY (`id`,`name`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `addusers`
+--
+
+INSERT INTO `addusers` (`id`, `name`, `password`, `email`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
+(1, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, NULL),
+(3, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, NULL),
+(4, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -117,7 +145,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `password` varchar(500) NOT NULL,
-  `emailid` varchar(100) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `photo` varchar(200) DEFAULT NULL,
   `tempaddress` text,
   `peraddress` text,
@@ -134,8 +162,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Constraints for table `bookings`
 --
 ALTER TABLE `bookings`
-  ADD CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `equipments` (`id`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `bookings_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `users` (`id`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `equipments` (`id`) ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
