@@ -27,6 +27,18 @@ body {
     background-color: #fff;
 }
 
+table {
+	border: 2px solid black !important;
+	width: 70%!important;
+}
+td,
+th {
+  padding: 0;
+  text-align: center !important;
+}
+
+
+
 .huge {
     font-size: 50px;
     line-height: normal;

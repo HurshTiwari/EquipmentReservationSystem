@@ -1,6 +1,6 @@
 
 <body>
-    <div id="wrapper">
+    <div class="page-wrapper">
 
         <!-- Navigation -->
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -46,20 +46,20 @@
                         </span>
                     </div>
                     </li>-->
-                    <li class="active">
-                        <a href="index.html"><i class="fa fa-fw fa-tasks"></i> Equipments</a>
+                    <li>
+                        <a href="index.php"><i class="fa fa-fw fa-tasks"></i> Equipments</a>
                     </li>
                     <li>
-                        <a href="charts.html"><i class="fa fa-fw fa-users"></i> All Users</a>
+                        <a href="allusers.php"><i class="fa fa-fw fa-users"></i> All Users</a>
                     </li>
                     <li>
-                        <a href="tables.html"><i class="fa fa-fw fa-user"></i> Add user</a>
+                        <a href="addaccount.php"><i class="fa fa-fw fa-user"></i> Add user</a>
                     </li>
                     <li>
-                        <a href="forms.html"><i class="fa fa-fw fa-plus"></i> Add equipment</a>
+                        <a href="addequipment.php"><i class="fa fa-fw fa-plus"></i> Add equipment</a>
                     </li>
                     <li>
-                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-remove"></i> Cancel Booking</a>
+                        <a href="#"><i class="fa fa-fw fa-remove"></i> Cancel Booking</a>
                     </li>
                 </ul>
             </div>

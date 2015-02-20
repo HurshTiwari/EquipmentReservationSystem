@@ -1,11 +1,10 @@
 <!DOCTYPE php>
+<?php include_once("/common/base.php");?>
 <?php include_once("/common/head.php");?>
 <?php include_once("/common/navbar_top_side.php");?>
-
-        <div id="page-wrapper">
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
+            <div id="page-wrapper">
+			<div class="container">
+				<!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
@@ -23,7 +22,8 @@
                 </div>
                 <!-- /.row -->
                 <div class="row">
-                <div class="col-sm-6 col-md-4">
+                
+				<div class="col-sm-6 col-md-4">
                     <a href="#">
                         <img class="img-responsive" src="http://placehold.it/700x400" alt>
                     </a>
@@ -96,8 +96,7 @@
                 <!--/. row-->
             </div>
             <!-- /.container-fluid -->
-
-        </div>
+			</div>
         <!-- /#page-wrapper -->
 
     <?php include_once("/common/close.php")?>

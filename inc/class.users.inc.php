@@ -21,7 +21,8 @@ private $_db;
     {
 		$username=$_POST['username'];
 		$password=$_POST['password'];
-		$email=$_POST['email'];
+		$rollno=$_POST['rollno'];
+		$email=$_POST['email'];		
         $sql = "SELECT COUNT (username) AS theCount
                 FROM users
                 WHERE Username=:user";
@@ -45,12 +46,15 @@ private $_db;
             $stmt->closeCursor();
         }
 		
-        $sql = "INSERT INTO addusers(name, password, email)
-                VALUES(:user, :pass, :email)";
+        $sql = "INSERT INTO addusers(name, password, email, rollno,tempaddress,peraddress)
+                VALUES(:user, :pass, :email,:rollno,:tempaddress,:peraddress)";
         if($stmt = $this->_db->prepare($sql)) {
             $stmt->bindParam(":user", $username, PDO::PARAM_STR);
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
             $stmt->bindParam(":pass", $password, PDO::PARAM_STR);
+			$stmt->bindParam(":rollno", $rollno, PDO::PARAM_STR);
+			//$stmt->bindParam(":tempaddress", $password, PDO::PARAM_STR);		--tempaddress
+			//$stmt->bindParam(":peraddress", $password, PDO::PARAM_STR);		--peraddress, photo,phoneno
             try{$stmt->execute();} catch(PDOException $e) {echo "<div>".$e->getMessage()."</div>";}
             $stmt->closeCursor();
             return "<h2> Success! </h2>"
@@ -66,7 +70,8 @@ private $_db;
 }
 		
 		
-    
+ 
+   
 
 
 ?>
