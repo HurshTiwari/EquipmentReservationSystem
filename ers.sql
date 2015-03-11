@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 16, 2015 at 06:10 PM
+-- Generation Time: Mar 11, 2015 at 06:49 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -37,16 +37,14 @@ CREATE TABLE IF NOT EXISTS `addusers` (
   `phoneno` varchar(10) DEFAULT NULL,
   `rollno` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `addusers`
 --
 
 INSERT INTO `addusers` (`id`, `name`, `password`, `email`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
-(1, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, NULL),
-(3, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, NULL),
-(4, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, NULL);
+(1, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, '1000001');
 
 -- --------------------------------------------------------
 
@@ -115,7 +113,17 @@ CREATE TABLE IF NOT EXISTS `equipments` (
   `description` longtext NOT NULL,
   `image` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `equipments`
+--
+
+INSERT INTO `equipments` (`id`, `name`, `description`, `image`) VALUES
+(1, 'equip1', '', '/img/equip/1.jpg'),
+(2, 'equip2', '', '/img/equip/2.jpg'),
+(3, 'equipment3', '', '/img/equip/3.jpg'),
+(4, 'equipment4', '', '/img/equip/4.jpg');
 
 -- --------------------------------------------------------
 
