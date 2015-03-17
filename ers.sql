@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 11, 2015 at 06:49 PM
+-- Generation Time: Mar 17, 2015 at 07:06 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -37,14 +37,15 @@ CREATE TABLE IF NOT EXISTS `addusers` (
   `phoneno` varchar(10) DEFAULT NULL,
   `rollno` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `addusers`
 --
 
 INSERT INTO `addusers` (`id`, `name`, `password`, `email`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
-(1, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, '1000001');
+(1, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, '1000001'),
+(2, 'asdja', 'asdhabsd', 'SDKJFS@IITI.AC.IN', NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -63,7 +64,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `phoneno` varchar(10) DEFAULT NULL,
   `rollno` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `name`, `password`, `emailid`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
+(1, 'admin', 'iit', 'admin@iiti.ac.in', '/img/admin/1', '1', '1', '100001011', NULL);
 
 -- --------------------------------------------------------
 
@@ -99,7 +107,15 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   PRIMARY KEY (`id`,`userid`,`eid`),
   KEY `bookings_ibfk_2` (`eid`),
   KEY `bookings_ibfk_1` (`userid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `date`, `starttime`, `endtime`, `userid`, `eid`) VALUES
+(2, '2015-03-17 00:00:00', '2015-03-17 14:01:33', '2015-03-17 14:01:33', 1, 2),
+(3, '2015-03-17 00:00:00', '2015-03-17 14:04:35', '2015-03-17 14:04:35', 1, 3);
 
 -- --------------------------------------------------------
 
@@ -160,7 +176,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phoneno` varchar(10) DEFAULT NULL,
   `rollno` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `password`, `email`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
+(1, 'hursh', 'iit', '123@iiti.ac.in', '/img/user/1', '127', '123', '900909090', '100000001'),
+(2, 'manish', 'iit', 'manish@iiti.ac.in', '/img/user/2', '1231', '111', '000999000', '100000002');
 
 --
 -- Constraints for dumped tables
