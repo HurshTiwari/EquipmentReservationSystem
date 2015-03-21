@@ -1,8 +1,16 @@
-<!DOCTYPE php>
-<?php include_once("/common/base.php");?>
-<?php include_once("/common/head.php");?>
-<?php include_once("/common/navbar_top_side.php");?>
-            <div id="page-wrapper">
+<?php
+
+require '/inc/core.inc.php';
+require '/inc/connect.inc.php';  
+
+if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
+{    echo "hello!!";
+	include_once("/common/head.php");
+       include_once("/common/navbar_top_side.php");
+?>
+       
+
+          <div id="page-wrapper">
 			<div class="container">
 				<!-- Page Heading -->
                 
@@ -23,14 +31,21 @@
                     </div>
                 </div>
                 <!-- /.row -->
-<?php include_once("/inc/class.equipment.inc.php");
+       <?php 
+	   include_once("/inc/class.equipment.inc.php");
 		$equipment= new equipment($db);
 		$equipment->display();
+		?>
 
-?>
-            </div>
+         </div>
             <!-- /.container-fluid -->
 			</div>
-        <!-- /#page-wrapper -->
+        <!-- /#page-wrapper -->';
 
-    <?php include_once("/common/close.php")?>
+<?php    include_once("/common/close.php");
+}
+	
+else{
+  include 'login.php';  
+}
+?>

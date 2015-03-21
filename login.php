@@ -1,3 +1,61 @@
+<?php
+require '/inc/core.inc.php';
+require 'inc/connect.inc.php';
+
+if( isset($_POST['username']) && isset($_POST['password'])){
+$username=$_POST['username'];
+$password=$_POST['password'];
+
+
+if(!empty($username)&&!empty($password)){
+$query_run1=$db->query("select count(*) as theCount from users where name ='$username' and password ='$password'");
+$count=$query_run1->fetchColumn();
+echo $count;
+
+/*if($query_run1->fetchColumn()!= 1){
+
+echo'<html>
+ <script type="text/javascript">
+ alert("INVALID USERNAME/PASSWORD';
+ echo $username;
+ echo $password;
+ echo'")
+ </script>
+ </html>';
+}*/
+		if($count == 1){
+					 $stmt=$db->prepare("select * from users where name =? and password =?");
+					 $result=$stmt->execute(array($username,$password));
+					 if($result){
+					 $user_id= $stmt->fetch(); 
+					$_SESSION['user_id']=$user_id;
+					header('Location:index.php');		
+					}
+		}
+		else{
+		 echo'<html>
+		 <script type="text/javascript">
+		 alert("INVALID USERNAME/PASSWORD!!!" );
+		 </script>
+		 </html>';
+		}
+	}
+	else{
+	echo'<html>
+	 <script type="text/javascript">
+	 alert("please enter both username and password");
+	 </script>
+	 </html>';
+	}
+}
+?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,17 +130,16 @@
                     
 					<div class="col-lg-3 col-lg-offset-5 col-md-offset-5 col-md-3">
                     <!--form-->
-                        <form role="form">
+                        <form role="form" action="<?php echo $current_file; ?>" method="POST">
 
                              <div class="form-group ">
                                 <p class="form-control-static">Username</p>
-                                <input class="form-control" placeholder="xyz120001001">
+                                <input class="form-control" placeholder="xyz120001001" name="username">
                             </div>
                             <div class="form-group">
                                 <p class="form-control-static">Password</p>
-                                <input class="form-control" type="password" placeholder="********">
+                                <input class="form-control" type="password" placeholder="********" name="password">
                             </div>
-
                             <button type="submit" class="btn btn-default">Submit</button>
                             
 
