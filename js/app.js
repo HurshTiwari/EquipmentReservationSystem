@@ -7,7 +7,7 @@
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
-		day: '2015-03-17',
+		day: 'now',
 		onAfterEventsLoad: function(events) {
 			if(!events) {
 				return;
@@ -22,7 +22,7 @@
 			});
 		},
 		onAfterViewLoad: function(view) {
-			$('.page-header h3').text(this.getTitle());
+			$('.page-header #head').text(this.getTitle());
 			$('.btn-group button').removeClass('active');
 			$('button[data-calendar-view="' + view + '"]').addClass('active');
 		},
@@ -62,7 +62,7 @@
 	});
 
 	$('#events-in-modal').change(function(){
-		var val = $(this).is(':checked') ? $(this).val() : null;
+		var val = "#events-modal";
 		calendar.setOptions({modal: val});
 	});
 	$('#events-modal .modal-header, #events-modal .modal-footer').click(function(e){

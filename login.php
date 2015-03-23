@@ -1,6 +1,6 @@
 <?php
-require '/inc/core.inc.php';
-require 'inc/connect.inc.php';
+require_once '/inc/core.inc.php';
+require_once 'inc/connect.inc.php';
 
 if( isset($_POST['username']) && isset($_POST['password'])){
 $username=$_POST['username'];
@@ -28,7 +28,8 @@ echo'<html>
 					 $result=$stmt->execute(array($username,$password));
 					 if($result){
 					 $user_id= $stmt->fetch(); 
-					$_SESSION['user_id']=$user_id;
+					$_SESSION['user_id']=$user_id['id'];
+					$_SESSION['username']=$user_id['name'];
 					header('Location:index.php');		
 					}
 		}

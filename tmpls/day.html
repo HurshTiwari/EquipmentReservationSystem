@@ -1,6 +1,6 @@
 <div id="cal-day-box">
 	<div class="row-fluid clearfix cal-row-head">
-		<div class="span1 col-xs-1 cal-cell"><%= out.println("FuckOff"); cal.locale.time %></div>
+		<div class="span1 col-xs-1 cal-cell"><%= cal.locale.time %></div>
 		<div class="span11 col-xs-11 cal-cell"><%= cal.locale.events %></div>
 	</div>
 	<% if(all_day.length) {%>
@@ -71,4 +71,14 @@
 	</div>
 	
 	<% }; %>
+</div>
+<br />
+<div class="row">
+<form role="form" action="addbooking.php" method ="POST">
+<div class="form-group" >
+<input type="hidden" id="sdate" value=getStartDate() />
+<input type="hidden" id="name" value="<?php echo $_SESSION['username'];?>"/>
+<input type="hidden" id="ename" value="<?php echo $_POST['eid'];?>"/>
+<center><button class="btn btn-success" type="submit" >Add a Booking</center>
+</div>
 </div>
