@@ -1,11 +1,24 @@
 <!DOCTYPE php>
-<?php include_once("/common/base.php");?>
+<?php include_once("/common/base.php");
+	if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
+?>
 <?php include_once("/common/head.php");?>
-<?php include_once("/common/navbar_top_side.php");?>
+<?php include_once("/common/navbar_top_side.php");
+if(!isset($_POST['ename']))
+	$ename=$_SESSION['ename'];
+else
+	{
+	$ename=$_POST['ename'];
+	$_SESSION['ename']=$ename;
+	}
+?>
 		<div id="page-wrapper">
 		<div class="container-fluid">
 				<!-- Page Heading -->		
 				<div class="page-header">	
+				<div class="row">
+					<center><h1><?php echo $ename ?></h1></center>
+				</div>
 				<div class="pull-right form-inline">
 					<div class="btn-group">
 						<button class="btn btn-primary" data-calendar-nav="prev"><< Prev</button>
@@ -57,4 +70,12 @@
 			<script type="text/javascript" src="components/jstimezonedetect/jstz.min.js"></script>
 			<script type="text/javascript" src="js/calendar.js"></script>
 			<script type="text/javascript" src="js/app.js"></script>
-<?php include_once("/common/close.php")?>
+			
+
+<?php include_once("/common/close.php");
+}else 
+{
+header("login.php");
+}
+
+?>

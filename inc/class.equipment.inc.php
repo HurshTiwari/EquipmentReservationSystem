@@ -52,7 +52,7 @@ private $_db;
 							.'<p>'
 							.'Description........................ '.$desc
 							.'</p>'
-							.'<input id="name" type="hidden" value="'.$name.'">'
+							.'<input id="ename" name="ename" type="hidden" value="'.$name.'">'
 						.'</div></form>';
 				if(($i+1)%3==0)
 				{
