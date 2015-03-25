@@ -4,6 +4,8 @@
 ?>
 <?php include_once("/common/head.php");?>
 <?php include_once("/common/navbar_top_side.php");
+if(isset($_POST['eid']))	
+	{$_SESSION['eid']=$_POST['eid'];}
 if(!isset($_POST['ename']))
 	$ename=$_SESSION['ename'];
 else

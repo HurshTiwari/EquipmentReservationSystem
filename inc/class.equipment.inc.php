@@ -36,6 +36,7 @@ private $_db;
 			$i=0;
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			while($row = $sql->fetch()){
+				$eid=$row['id'];
 				$name=$row['name'];
 				$img=$row['image'];
 				$desc=$row['description'];
@@ -53,6 +54,7 @@ private $_db;
 							.'Description........................ '.$desc
 							.'</p>'
 							.'<input id="ename" name="ename" type="hidden" value="'.$name.'">'
+							.'<input id="eid" name="eid" type="hidden" value="'.$eid.'">'
 						.'</div></form>';
 				if(($i+1)%3==0)
 				{
