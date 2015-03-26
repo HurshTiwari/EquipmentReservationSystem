@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 17, 2015 at 07:06 PM
+-- Generation Time: Mar 26, 2015 at 01:59 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `addusers` (
   `phoneno` varchar(10) DEFAULT NULL,
   `rollno` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`,`name`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `addusers`
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `addusers` (
 
 INSERT INTO `addusers` (`id`, `name`, `password`, `email`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
 (1, 'phd1000001', 'iit', 'phd1000001@iiti.ac.in', NULL, NULL, NULL, NULL, '1000001'),
-(2, 'asdja', 'asdhabsd', 'SDKJFS@IITI.AC.IN', NULL, NULL, NULL, NULL, NULL);
+(3, 'anant', 'iit', 'anant@iiti.ac.in', NULL, NULL, NULL, NULL, '10000004');
 
 -- --------------------------------------------------------
 
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `name`, `password`, `emailid`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
-(1, 'admin', 'iit', 'admin@iiti.ac.in', '/img/admin/1', '1', '1', '100001011', NULL);
+(1, 'vipul', 'iit', 'admin@iiti.ac.in', '/img/admin/1', '1', '1', '100001011', NULL);
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ INSERT INTO `admin` (`id`, `name`, `password`, `emailid`, `photo`, `tempaddress`
 
 CREATE TABLE IF NOT EXISTS `adminbookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `starttime` timestamp NOT NULL,
   `endtime` timestamp NOT NULL,
   `userid` int(11) NOT NULL,
@@ -89,7 +89,14 @@ CREATE TABLE IF NOT EXISTS `adminbookings` (
   PRIMARY KEY (`id`,`userid`,`eid`),
   KEY `userid` (`userid`),
   KEY `eid` (`eid`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `adminbookings`
+--
+
+INSERT INTO `adminbookings` (`id`, `date`, `starttime`, `endtime`, `userid`, `eid`) VALUES
+(1, '2015-03-27', '2015-03-27 09:19:34', '2015-03-27 14:19:34', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -99,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `adminbookings` (
 
 CREATE TABLE IF NOT EXISTS `bookings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `date` datetime NOT NULL,
+  `date` date NOT NULL,
   `starttime` timestamp NOT NULL,
   `endtime` timestamp NOT NULL,
   `userid` int(11) NOT NULL,
@@ -107,15 +114,19 @@ CREATE TABLE IF NOT EXISTS `bookings` (
   PRIMARY KEY (`id`,`userid`,`eid`),
   KEY `bookings_ibfk_2` (`eid`),
   KEY `bookings_ibfk_1` (`userid`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `bookings`
 --
 
 INSERT INTO `bookings` (`id`, `date`, `starttime`, `endtime`, `userid`, `eid`) VALUES
-(2, '2015-03-17 00:00:00', '2015-03-17 14:01:33', '2015-03-17 14:01:33', 1, 2),
-(3, '2015-03-17 00:00:00', '2015-03-17 14:04:35', '2015-03-17 14:04:35', 1, 3);
+(2, '2015-03-17', '2015-03-17 14:01:33', '2015-03-17 17:01:33', 1, 2),
+(3, '2015-03-17', '2015-03-18 14:04:35', '2015-03-18 16:04:35', 1, 3),
+(4, '2015-03-25', '2015-03-25 17:55:06', '2015-03-25 17:55:06', 2, 1),
+(7, '2015-03-12', '2015-03-12 05:15:50', '2015-03-12 09:50:25', 1, 1),
+(8, '2015-03-27', '2015-03-27 05:15:50', '2015-03-27 09:50:25', 1, 1),
+(9, '2015-03-28', '2015-03-28 05:15:50', '2015-03-28 09:50:25', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -176,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phoneno` varchar(10) DEFAULT NULL,
   `rollno` varchar(9) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `users`
@@ -184,11 +195,21 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `name`, `password`, `email`, `photo`, `tempaddress`, `peraddress`, `phoneno`, `rollno`) VALUES
 (1, 'hursh', 'iit', '123@iiti.ac.in', '/img/user/1', '127', '123', '900909090', '100000001'),
-(2, 'manish', 'iit', 'manish@iiti.ac.in', '/img/user/2', '1231', '111', '000999000', '100000002');
+(2, 'manish', 'iit', 'manish@iiti.ac.in', '/img/user/2', '1231', '111', '000999000', '100000002'),
+(3, 'simmi', 'iit', 'simmi@iiti.ac.in', NULL, NULL, NULL, '9999999999', '100000003'),
+(6, 'anant', 'iit', 'anant@iiti.ac.in', NULL, NULL, NULL, NULL, '10000004'),
+(7, 'anant', 'iit', 'anant@iiti.ac.in', NULL, NULL, NULL, NULL, '10000004');
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `adminbookings`
+--
+ALTER TABLE `adminbookings`
+  ADD CONSTRAINT `adminbookings_ibfk_2` FOREIGN KEY (`eid`) REFERENCES `equipments` (`id`),
+  ADD CONSTRAINT `adminbookings_ibfk_1` FOREIGN KEY (`userid`) REFERENCES `admin` (`id`);
 
 --
 -- Constraints for table `bookings`
