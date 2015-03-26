@@ -46,8 +46,8 @@ private $_db;
             $stmt->closeCursor();
         }
 		
-        $sql = "INSERT INTO addusers(name, password, email, rollno,tempaddress,peraddress)
-                VALUES(:user, :pass, :email,:rollno,:tempaddress,:peraddress)";
+        $sql = "INSERT INTO addusers(name, password, email, rollno)
+                VALUES(:user, :pass, :email,:rollno)";
         if($stmt = $this->_db->prepare($sql)) {
             $stmt->bindParam(":user", $username, PDO::PARAM_STR);
 			$stmt->bindParam(":email", $email, PDO::PARAM_STR);
