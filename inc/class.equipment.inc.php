@@ -73,8 +73,11 @@ private $_db;
             return "<h2> Error </h2><p> Couldn't insert the "
                 . "user information into the database. </p>";
         }
-    }
-
+	}
+	
+	
+	function close(){$this->_db=null;}
+	
 }
 		
 		

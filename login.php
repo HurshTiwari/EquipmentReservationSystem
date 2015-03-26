@@ -1,38 +1,49 @@
 <?php
 require_once '/inc/core.inc.php';
-require_once 'inc/connect.inc.php';
-
-if( isset($_POST['username']) && isset($_POST['password'])){
+if( isset($_POST['username']) && isset($_POST['password'])&&isset($_POST['usertype'])){
 $username=$_POST['username'];
 $password=$_POST['password'];
-
-
-if(!empty($username)&&!empty($password)){
-$query_run1=$db->query("select count(*) as theCount from users where name ='$username' and password ='$password'");
-$count=$query_run1->fetchColumn();
-echo $count;
-
-/*if($query_run1->fetchColumn()!= 1){
-
-echo'<html>
- <script type="text/javascript">
- alert("INVALID USERNAME/PASSWORD';
- echo $username;
- echo $password;
- echo'")
- </script>
- </html>';
-}*/
-		if($count == 1){
-					 $stmt=$db->prepare("select * from users where name =? and password =?");
-					 $result=$stmt->execute(array($username,$password));
-					 if($result){
-					 $user_id= $stmt->fetch(); 
-					$_SESSION['user_id']=$user_id['id'];
-					$_SESSION['username']=$user_id['name'];
-					header('Location:index.php');		
+$type=$_POST['usertype'];
+$_SESSION['usertype']=$type;
+				if(!empty($username)&&!empty($password)&&!empty($type))
+				{
+					if($type=="user")
+					{
+						$query_run1=$db->query("select count(*) as theCount from users where name ='$username' and password ='$password'");
+						$count=$query_run1->fetchColumn();
 					}
-		}
+					elseif($type=="admin")
+					{
+						$query_run1=$db->query("select count(*) as theCount from admin where name ='$username' and password ='$password'");
+						$count=$query_run1->fetchColumn();
+					}
+					else
+						{echo "<html><script type='text/javascript'>alert('result not fetched')</script></html>";}
+					
+					if($count == 1){
+									 if($type=="user")
+									 {
+									 $stmt=$db->prepare("select * from users where name =? and password =?");
+									 $result=$stmt->execute(array($username,$password));
+									 }
+									 
+									 if($type=="admin")
+									 {
+									 $stmt=$db->prepare("select * from admin where name =? and password =?");
+									 $result=$stmt->execute(array($username,$password));
+									 }
+									 if($result)
+									 {
+									$userid= $stmt->fetch(); 
+									$_SESSION['user_id']=$userid['id'];
+									$_SESSION['username']=$userid['name'];
+									
+									header('Location:index.php');		
+									}	
+									}
+					else 
+									echo"<html><script type='text/javascript'>alert('result not fetched')</script></html>";
+				}
 		else{
 		 echo'<html>
 		 <script type="text/javascript">
@@ -40,22 +51,15 @@ echo'<html>
 		 </script>
 		 </html>';
 		}
-	}
-	else{
+}
+/*else{
 	echo'<html>
 	 <script type="text/javascript">
 	 alert("please enter both username and password");
 	 </script>
 	 </html>';
-	}
-}
+	}*/
 ?>
-
-
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -131,7 +135,7 @@ echo'<html>
                     
 					<div class="col-lg-3 col-lg-offset-5 col-md-offset-5 col-md-3">
                     <!--form-->
-                        <form role="form" action="<?php echo $current_file; ?>" method="POST">
+                        <form role="form" action="login.php" method="POST">
 
                              <div class="form-group ">
                                 <p class="form-control-static">Username</p>
@@ -140,6 +144,14 @@ echo'<html>
                             <div class="form-group">
                                 <p class="form-control-static">Password</p>
                                 <input class="form-control" type="password" placeholder="********" name="password">
+                            </div>
+							<div class="form-group">
+                                <p class="form-control-static">I am
+								<select name="usertype">
+                                <option class="form-control" name="usertype" value="admin">Admin</option>
+								<option class="form-control" name="usertype" value="user">User</option>
+								</select>
+								</p>
                             </div>
                             <button type="submit" class="btn btn-default">Submit</button>
                             

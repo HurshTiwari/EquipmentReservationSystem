@@ -17,7 +17,7 @@
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav">
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i>  User Name <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo $_SESSION['username']?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -46,7 +46,10 @@
                         </span>
                     </div>
                     </li>-->
-                    <li>
+                    <?php 
+						if($_SESSION['usertype']=='admin'){
+					?>
+					<li>
                         <a href="index.php"><i class="fa fa-fw fa-tasks"></i> Equipments</a>
                     </li>
                     <li>
@@ -59,8 +62,25 @@
                         <a href="addequipment.php"><i class="fa fa-fw fa-plus"></i> Add equipment</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-fw fa-remove"></i> Cancel Booking</a>
+                        <a href="cancelbooking.php"><i class="fa fa-fw fa-remove"></i> Cancel Booking</a>
                     </li>
+					<li>
+                        <a href="search.php"><i class="fa fa-fw fa-search"></i>Search</a>
+                    </li>
+					<?php 
+						}
+						else if($_SESSION['usertype']=='user'){
+					?>
+					<li>
+                        <a href="index.php"><i class="fa fa-fw fa-tasks"></i> Equipments</a>
+                    </li>
+					<li>
+                        <a href="cancelbooking.php"><i class="fa fa-fw fa-remove"></i> Cancel Booking</a>
+                    </li>
+					<li>
+                        <a href="search.php"><i class="fa fa-fw fa-search"></i>Search</a>
+                    </li>
+					<?php } ?>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
