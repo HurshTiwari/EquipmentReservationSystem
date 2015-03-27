@@ -1,6 +1,6 @@
 <div>
 <center>
-<form>
+<form method="post" action="editprofile.php">
 Username:&emsp; &emsp;&nbsp;   
 <input type ="text" name = "username"><br><br>
 Password : &nbsp;&emsp; &emsp;

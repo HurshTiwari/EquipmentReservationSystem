@@ -36,6 +36,7 @@ private $_db;
 			$i=0;
 			$sql->setFetchMode(PDO::FETCH_ASSOC);
 			while($row = $sql->fetch()){
+				$eid=$row['id'];
 				$name=$row['name'];
 				$img=$row['image'];
 				$desc=$row['description'];
@@ -52,7 +53,8 @@ private $_db;
 							.'<p>'
 							.'Description........................ '.$desc
 							.'</p>'
-							.'<input id="name" type="hidden" value="'.$name.'">'
+							.'<input id="ename" name="ename" type="hidden" value="'.$name.'">'
+							.'<input id="eid" name="eid" type="hidden" value="'.$eid.'">'
 						.'</div></form>';
 				if(($i+1)%3==0)
 				{
@@ -71,8 +73,11 @@ private $_db;
             return "<h2> Error </h2><p> Couldn't insert the "
                 . "user information into the database. </p>";
         }
-    }
-
+	}
+	
+	
+	function close(){$this->_db=null;}
+	
 }
 		
 		

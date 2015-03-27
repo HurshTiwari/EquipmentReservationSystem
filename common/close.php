@@ -9,6 +9,6 @@
     <script src="js/bootstrap.min.js"></script>
 
 </body>
-
+<?php $db=null;?>
 </html>
 

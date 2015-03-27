@@ -1,10 +1,8 @@
 <?php
 
-require '/inc/core.inc.php';
-require '/inc/connect.inc.php';  
-
+require_once '/inc/core.inc.php';
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
-{    echo "hello!!";
+{   
 	include_once("/common/head.php");
        include_once("/common/navbar_top_side.php");
 ?>
@@ -35,6 +33,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	   include_once("/inc/class.equipment.inc.php");
 		$equipment= new equipment($db);
 		$equipment->display();
+		$equipment->close();
 		?>
 
          </div>
@@ -46,6 +45,6 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 }
 	
 else{
-  include 'login.php';  
+	  header('Location:login.php');  
 }
 ?>
