@@ -4,13 +4,12 @@ if(isset($_SESSION['eid']))
 $eid=$_SESSION['eid'];
 else
 {echo json_encode(array('error' => 0, 'result' => 'session not set'));
-$eid=2;
 }
-$start = (time()-(31*24*60*60));	
-$end   = (time()+(31*24*60*60));
-$sql = "SELECT * FROM `bookings` WHERE eid=$eid and unix_timestamp(`starttime`) between ? and ? ";
+$start = time()-(31*24*60*60);	
+$end   = time()+(31*24*60*60);
+$sql = "SELECT * FROM `bookings` WHERE UNIX_TIMESTAMP(`starttime`) between ? and ? and eid=?";
 $stmt=$db->prepare($sql);
-$row=$stmt->execute(array($start,$end));     
+$row=$stmt->execute(array($start,$end,$eid));     
 
 $out = array();
 if($row)
@@ -26,8 +25,8 @@ while($result=$stmt->fetch()) {
         "title" => "Name: ".$name[0],
         "url" => "http://www.example.com/",
 		"class"=> "event-important",
-        "start" => strtotime($result['starttime']).'000',
-        "end" => strtotime($result['endtime']).'000'
+        "start" => (strtotime($result['starttime'])-16200).'000',
+        "end" => (strtotime($result['endtime'])-16200).'000'
     );
 }
 

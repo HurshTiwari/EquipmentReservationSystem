@@ -1,8 +1,8 @@
 <?php
-require_once ("/inc/core.inc.php");
+require_once "/inc/core.inc.php";
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
-$username=$_SESSION['username'];
-//$ename=$_POST['ename'];
+$user_id=$_SESSION['user_id'];
+$ename=$_POST['ename'];
 $ename=$_SESSION['ename'];
 if(isset($_POST['sdate']))
 $sdate=$_POST['sdate'];
@@ -19,13 +19,13 @@ include_once ("/common/navbar_top_side.php");
 	<div class="Page-Header"><center><h1>Perform Booking</h1></center></div>
 	<form name="myForm" role="form" method="POST" action="booking2.php">
 		<div class="form-group">
-		<label for="name">Name:</label><input type="text" id ="name" value="<?php echo $username;?>" readonly></input>
+		<label for="name">Name:</label><input type="text" id ="name" value="<?php echo $user_id['name'];?>" readonly></input>
 		</div>
 		<div class="form-group">
 		<label for="ename">Equipment Name:</label><input type="text" name="ename" value="<?php echo $ename;?>"readonly></input>
 		</div>
 		<div class="form-group">
-		<label for="sdate">Start Date:</label><input type="date" name="startdate" value="<?php echo $sdate;?>"readonly></input>
+		<label for="sdate">Start Date:</label><input type="text" name="startdate" value="<?php echo $sdate;?>"></input>
 		</div>
 		<div class="form-group">
 		<label for="name">Start Time:</label><input type="text" name="starttime" placeholder="hh:mm:ss"></input>

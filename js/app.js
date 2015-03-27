@@ -65,6 +65,7 @@
 					window.console('-1');
 					
 				var final=finalday+"-"+m+"-"+array[3];
+				//alert('date:'+final);
 				$("#sdate").val(final);
 				}		
 			
