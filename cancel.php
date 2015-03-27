@@ -1,6 +1,10 @@
 <?php
 include_once('/inc/core.inc.php');
+<<<<<<< HEAD
 if(isset($_SESSION['user_id'])){
+=======
+if(isset($_SESSION['user_id'])&&isset($_SESSION['username'])){
+>>>>>>> origin/mybranch
 $userid=$_SESSION['user_id'];
 $type=$_SESSION['usertype'];
 if(!empty($_POST['check_list'])){
@@ -15,7 +19,11 @@ foreach($_POST['check_list'] as $selected){
 		
 		$stmt=$db->prepare($sql);
 		$stmt->bindParam(':in',$selected,PDO::PARAM_INT);
+<<<<<<< HEAD
 		$stmt->bindParam(':user',$userid['id'],PDO::PARAM_INT);
+=======
+		$stmt->bindParam(':user',$userid,PDO::PARAM_INT);
+>>>>>>> origin/mybranch
 		$result=$stmt->execute();
 		if(!$result)
 			{$flag=1;}
@@ -28,7 +36,11 @@ foreach($_POST['check_list'] as $selected){
 		{
 			$db=null;
 			echo"Deletion done successfully";
+<<<<<<< HEAD
 			header("Location: cancelbooking.php");
+=======
+			header("Location: cancelbookings.php");
+>>>>>>> origin/mybranch
 		}
 	}
 	else

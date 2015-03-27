@@ -43,4 +43,6 @@ echo"Insertion done successfully";}
 header("Location: allusers.php");
 
 }
+else
+	header("Location: cancelbooking.php");
 ?>
