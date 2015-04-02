@@ -4,7 +4,6 @@ require '/inc/core.inc.php';
 require '/inc/connect.inc.php';  
 
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
-<<<<<<< HEAD
 {  
     $user_id=$_SESSION['user_id'];
 	
@@ -106,10 +105,10 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 				  $_SESSION['user_id']['rollno']=$rollno;
 	 }
 }	 
-=======
-{    echo "hello!!";
+
+	echo "hello!!";
     $user_id=$_SESSION['user_id'];
->>>>>>> origin/mybranch
+
 	include_once("/common/head.php");
 
        include_once("/common/navbar_top_side.php");
@@ -127,7 +126,6 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
                 </div>
 	
 			  <!--form-->
-<<<<<<< HEAD
 				
 				 <form method="POST" action="settings.php">
 	  				<div class="form-group">
@@ -140,14 +138,14 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<form method="POST" action="settings.php">
   					<div class="form-group">
     					<label for="password">Password</label>
-						<input name="password" value="<?php echo $user_id['password'];?>"></input>
+						<input name="password" type="password" value="<?php echo $user_id['password'];?>"></input>
 						<button type="submit">EDIT</button>
 
   					</div>
 					</form>
 					<form method="POST" action="settings.php">
   					<div class="form-group">
-    					<label for="exampleInputEmail1">Email address</label>
+    					<label for="email">Email address</label>
 						<input name="email" value="<?php echo $user_id['email'];?>" ></input>
 						<button type="submit">EDIT</button>
     					
@@ -191,61 +189,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
     					<p class="help-block">Browse a photo from your files.</p>
   					</div>-->
   	             
-				         
-=======
-				<form>
-	  				<div class="form-group">
-    					<label for="username">Username</label>
-						<?php echo $user_id['name'];?><a href="editname.php">EDIT</a>
-							
-  					</div>
-  					<div class="form-group">
-    					<label for="password">Password</label>
-    					<?php echo $user_id['password'];?><button>EDIT</button>
-  					</div>
-  					<div class="form-group">
-    					<label for="exampleInputEmail1">Email address</label>
-    					<?php echo $user_id['email'];?><button>EDIT</button>
-  					</div>
-  					<div class="form-group">
-    					<label for="tempaddress">Temporary address</label>
-    					<?php echo $user_id['tempaddress'];?><button>EDIT</button>
-  					</div>
-  					<div class="form-group">
-    					<label for="peraddress">Permanent address</label>
-    					<?php echo $user_id['peraddress'];?><button>EDIT</button>
-  					</div>
-					<div class="form-group">
-    					<label for="peraddress">Ph No</label>
-    					<?php echo $user_id['phoneno'];?><button>EDIT</button>
-  					</div>
-					<div class="form-group">
-    					<label for="peraddress">Roll No</label>
-    					<?php echo $user_id['rollno'];?><button>EDIT</button>
-  					</div>
-  					<div class="form-group">
-    					<label for="exampleInputFile">Change Photo</label>
-    					<input type="file" id="exampleInputFile">
-    					<p class="help-block">Browse a photo from your files.</p>
-  					</div>
-  	             
-				</form>          
->>>>>>> origin/mybranch
-				<!--edit button functions-->
-				<?php
-				/* function fun1()
-				 {
-				   $_SESSION['edit_name']=$user_id['name'];
-<<<<<<< HEAD
-				   header('Location:settings.php');
-=======
-				   header('Location:edit.php');
->>>>>>> origin/mybranch
-				 }
-				 if($_GET['button1']){fun1();}*/
-				?>
-       <!-- /#page-wrapper -->
-
+				        
          </div>
             <!-- /.container-fluid -->
 			</div>

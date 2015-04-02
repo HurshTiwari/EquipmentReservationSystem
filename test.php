@@ -1,5 +1,5 @@
 <!DOCTYPE php>
-<?php include_once("/common/base.php");
+<?php include_once("/inc/core.inc.php");
 	if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
 ?>
 <?php include_once("/common/head.php");?>

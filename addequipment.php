@@ -51,13 +51,9 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 								</button>
 							</div>';
 					elseif($flag==2)
-<<<<<<< HEAD
-					echo	'<div class="alert alert-success alert-dismissable"><i class="fa fa-tag"></i>Error! Could not insert '.
-							$_POST["description"].'	<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
-=======
+//<<<<<<< HEAD
 					echo	'<div class="alert alert-success alert-dismissable"><i class="fa fa-tag"></i>Error! Could not insert 
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
->>>>>>> origin/mybranch
 								&times;
 								</button>
 							</div>';
@@ -78,20 +74,14 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
             	<!--form-->
 				<form method="POST" action="addequipment.php">
   					<div class="form-group">
-<<<<<<< HEAD
+
     					<label for="ename">Equipment Name</label>
-=======
-    					<label for="name">Equipment Name</label>
->>>>>>> origin/mybranch
+
     					<input type="text" class="form-control" name="ename">
   					</div>
   					<div class="form-group">
     					<label for="description">Equipment Description</label>
-<<<<<<< HEAD
     					<input class="form-control" rows="3" name="description"></input>
-=======
-    					<textarea class="form-control" rows="3" name="description"></textarea>
->>>>>>> origin/mybranch
   					</div>
   					<!--<div class="form-group">
     					<label for="exampleInputFile">Equipment's Photo</label>

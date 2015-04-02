@@ -2,11 +2,11 @@
 
 require_once '/inc/core.inc.php';
 include_once ("/common/head.php");
-<<<<<<< HEAD
+//<<<<<<< HEAD
 if(isset($_SESSION['user_id'])){
-=======
-if(isset($_SESSION['user_id'])&&isset($_SESSION['username'])){
->>>>>>> origin/mybranch
+//=======
+//if(isset($_SESSION['user_id'])&&isset($_SESSION['username'])){
+//>>>>>>> origin/mybranch
 $userid=$_SESSION['user_id'];
 $type=$_SESSION['usertype'];
 include_once ("/common/navbar_top_side.php");
@@ -24,11 +24,11 @@ include_once ("/common/navbar_top_side.php");
 			{$sql= "select * from adminbookings where userid=? ";}
 			
 			$stmt=$db->prepare($sql);
-<<<<<<< HEAD
+//<<<<<<< HEAD
 			$qresult=$stmt->execute(array($userid['id']));
-=======
-			$qresult=$stmt->execute(array($userid));
->>>>>>> origin/mybranch
+//=======
+	//		$qresult=$stmt->execute(array($userid));
+//>>>>>>> origin/mybranch
 			if(!$qresult)
 			{
 				echo "Can't fetch the records";
@@ -38,12 +38,17 @@ include_once ("/common/navbar_top_side.php");
 			while ($results =$stmt->fetch()){
 
 			$id=$results['id'];
-			$sql2= "select name from equipments where id=:in";
+			$sql2= "select name from equipments where id=:in limit 1";
 			$stmt2=$db->prepare($sql2);
 			$stmt2->bindParam(':in',$id,PDO::PARAM_INT);
-			$qresult=$stmt2->execute();
-			$r_name=$stmt2->fetch();
-			$name=$r_name[0];
+			$qresult2=$stmt2->execute();
+			if($qresult2){
+			$r_name=$stmt2->fetch(PDO::FETCH_ASSOC);
+			$name=$r_name['name'];}
+			else
+			$name="Not found";
+			
+			
 			$date=$results['date'];
 			$start=$results['starttime'];
 			$end=$results['endtime'];

@@ -1,6 +1,6 @@
 <?php
 
-require '/inc/core.inc.php';
+require_once '/inc/core.inc.php';
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 {  $user_id=$_SESSION['user_id'];
 ?>
