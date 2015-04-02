@@ -2,11 +2,11 @@
 
 require_once '/inc/core.inc.php';
 include_once ("/common/head.php");
-<<<<<<< HEAD
+
 if(isset($_SESSION['user_id'])){
-=======
+
 if(isset($_SESSION['user_id'])&&isset($_SESSION['username'])){
->>>>>>> origin/mybranch
+
 $userid=$_SESSION['user_id'];
 $type=$_SESSION['usertype'];
 include_once ("/common/navbar_top_side.php");
@@ -24,11 +24,11 @@ include_once ("/common/navbar_top_side.php");
 			{$sql= "select * from adminbookings where userid=? ";}
 			
 			$stmt=$db->prepare($sql);
-<<<<<<< HEAD
+
 			$qresult=$stmt->execute(array($userid['id']));
-=======
+
 			$qresult=$stmt->execute(array($userid));
->>>>>>> origin/mybranch
+
 			if(!$qresult)
 			{
 				echo "Can't fetch the records";
