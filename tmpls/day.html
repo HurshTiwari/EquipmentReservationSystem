@@ -74,11 +74,12 @@
 </div>
 <br />
 <div class="row">
-<form role="form" action="addbooking.php" method ="POST">
+<form role="form" action="addbooking.php" method ="POST" id="bookingform" name = "bookingform">
 <div class="form-group" >
 
 <input type="hidden" id="sdate" name="sdate"/>
 <input type="hidden" id="name" value="<?php echo $_SESSION['user_id']['name'];?>"/>
-<center><button class="btn btn-success" type="submit" >Add a Booking</center>
+<center><button class="btn btn-success" type="submit" id="addbooking" name="addbooking" >Add a Booking</center>
+</form>
 </div>
 </div>

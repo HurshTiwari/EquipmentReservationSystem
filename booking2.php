@@ -39,6 +39,9 @@ include_once ("/common/navbar_top_side.php");
 		$etime=mktime($end_hr,$end_min,$end_sec,$date_mon,$date_day,$date_year);
 		
 		echo"Starttime:".$stime."\tEndtime: ".$etime;
+		if($_SESSION['usertype']=='admin')
+		$sql = "INSERT INTO `ers`.`adminbookings` (`date`, `starttime`, `endtime`, `userid`, `eid`) VALUES (?,?,?,?,?)";
+		elseif($_SESSION['usertype']=='user')
 		$sql = "INSERT INTO `ers`.`bookings` (`date`, `starttime`, `endtime`, `userid`, `eid`) VALUES (?,?,?,?,?)";
 		$stmt=$db->prepare($sql);
 		$result=$stmt->execute(array($date,date('Y-m-d H:i:s',$stime),date('Y-m-d H:i:s',$etime),$id,$eid));

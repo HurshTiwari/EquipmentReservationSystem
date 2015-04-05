@@ -5,7 +5,7 @@
 	?>
 	<body>
 	<div class="page-wrapper" style="background:#fff">
-	<div class="container huge">
+	<div class="container">
 
 					<div class="row">
                
@@ -17,12 +17,12 @@
                                 <input class="form-control" name="username" placeholder="xyz120001001"></p>
                             </div>
                             <div class="form-group">
-                                <p class="form-control-static">Password&nbsp <input class="form-control" name="password" type="password" placeholder="********">
+                                <p class="form-control-static">Password&nbsp <input class="form-control" id="password" name="password" type="password" placeholder="********">
 								</p>
                             </div>
                             <div class="form-group">
                                 <p class="form-control-static ">Confirm Password&nbsp
-                                <input class="form-control" name="confirm" type="password" placeholder="********">
+                                <input class="form-control" name="confirm_password" id="confirm_password" type="password" placeholder="********">
 								</p>
                             </div>
 							
@@ -57,7 +57,14 @@
 				<form action="login.php">
 				<button  class="btn btn-default">Go Back</button>
 				</form>
-	</div>		
-<?php
-include_once 'common/close.php';                              
-?>
+	</div>
+ <script src="js/jquery.js"></script>
+	<script src="js/jstz.min.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.js"></script> 
+<script src="js/signupscript.js"></script> 	
+
+</div>
+</body>
+</html>

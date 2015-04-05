@@ -8,20 +8,16 @@
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
 		day: 'now',
+		modal: '#myModal',
+		modal_type: 'iframe',
+		modal_title: 'booking',
 		onAfterEventsLoad: function(events) {
 			if(!events) {
 				return;
 			}
-			var list = $('#eventlist');
-			list.html('');
-
-			$.each(events, function(key, val) {
-				$(document.createElement('li'))
-					.html('<a href="' + val.url + '">' + val.title + '</a>')
-					.appendTo(list);
-			});
 		},
 		onAfterViewLoad: function(view) {
+			
 			$('.page-header #head').text(this.getTitle());
 			$('.btn-group button').removeClass('active');
 			$('button[data-calendar-view="' + view + '"]').addClass('active');
@@ -65,10 +61,19 @@
 					window.console('-1');
 					
 				var final=finalday+"-"+m+"-"+array[3];
+				var check= Date.parse(array[3]+"-"+m+"-"+finalday);
+				var cur= Date.parse(new Date());
+				//alert("check="+check+" cur="+cur);
 				//alert('date:'+final);
 				$("#sdate").val(final);
+				if (check < (cur-86400000))		
+					{$("#addbooking").hide()}
+				else
+					{$("#addbooking").show()}
 				}		
-			
+				
+				
+				
 		},
 		classes: {
 			months: {
@@ -78,7 +83,8 @@
 	};
 
 	var calendar = $('#calendar').calendar(options);
-
+		
+		
 	$('.btn-group button[data-calendar-nav]').each(function() {
 		var $this = $(this);
 		$this.click(function() {
@@ -104,10 +110,7 @@
 		calendar.setLanguage($(this).val());
 		calendar.view();
 	});
-	$('#events-in-modal').change(function(){
-		var val = "#events-modal";
-		calendar.setOptions({modal: val});
-	});
+
 	$('#events-modal .modal-header, #events-modal .modal-footer').click(function(e){
 		//e.preventDefault();
 		//e.stopPropagation();

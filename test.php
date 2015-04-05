@@ -48,11 +48,8 @@ else
 					<input type="checkbox" value="#events-modal" id="events-in-modal"> Open events in modal window
 				</label>
 				-->
-
-			</div>
-				<!-- /.container-fluid -->
 				
-				<!--<div class="modal hide fade" id="events-modal">
+				<div class="modal hide fade" id="myModal">
 				<div class="modal-header">
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					<h3>Event</h3>
@@ -62,12 +59,14 @@ else
 				<div class="modal-footer">
 					<a href="#" data-dismiss="modal" class="btn">Close</a>
 				</div>
-				</div>-->
+				</div>
+				
+				
+			</div>
+				<!-- /.container-fluid -->
+				
 		</div>
-        <!-- /#page-wrapper -->
-			
-			<script type="text/javascript" src="js/jquery.min.js"></script>
-			<script type="text/javascript" src="js/bootstrap.js"></script>
+        <!-- /#page-wrapper -->	
 			<script type="text/javascript" src="js/underscore-min.js"></script>
 			<script type="text/javascript" src="components/jstimezonedetect/jstz.min.js"></script>
 			<script type="text/javascript" src="js/calendar.js"></script>
