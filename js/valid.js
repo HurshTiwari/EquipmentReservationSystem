@@ -19,51 +19,33 @@ $(document).ready(function(){
 									}, 
 									"Error! Starttime greater than end time"
 				);
-
-		$('#myForm').validate({
+				
+	$('#starttime').change(function (){$('#endtime').removeData("previousValue");});			
+	$('#myForm').validate({
 		onkeyup:false,
 	    rules: {
 		 starttime: {
 	        required: true,
-			isvalidtime: true,
-			remote:
-			{
-				url:"checktimeclash.php",
-				type:"post",
-				data:{
-					"startdate" : function(){ var sdate=$("#startdate").val();
-					var array=sdate.split('-');
-					return array[2]+'-'+array[1]+'-'+array[0];},
-				}
-			}
+			isvalidtime: true  
 	      },
 		 endtime: {
 	        isvalidtime: true,
 	        required: true,
 			startandend: "#starttime",
-			remote:
+			 remote:
 			{
 				url:"checktimeclash.php",
 				type:"post",
 				data:{
-					"startdate" : function(){ var sdate=$("#startdate").val();
-					var array=sdate.split('-');
-					return array[2]+'-'+array[1]+'-'+array[0];
-					},
+					"startdate" : function(){ return $("#startdate").val();},
+					"starttime" : function(){ return $("#starttime").val();}
+					}
 				}
-			
-			}
-	      }
-	    },
-		messages: {
-		 endtime: {
-	        remote: "End Time is clashing with another booking"
-	      },
-		 starttime: {
-	        remote: "Start Time is clashing with another booking"
-	      }
-	    },
-			highlight: function(element) {
+			}  
+		}
+	    ,
+		  
+		highlight: function(element) {
 				$(element).closest('.control-group').removeClass('success').addClass('error');
 			},
 			success: function(element) {

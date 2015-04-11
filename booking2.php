@@ -14,17 +14,17 @@ include_once ("/common/navbar_top_side.php");
 		$date=$_POST['startdate'];
 		$start= $_POST['starttime'];
 		list($start_hr, $start_min, $start_sec) = explode(":", $start);
-		echo"start: hr=".$start_hr."\tmin=".$start_min."\tsec=".$start_sec;
+		//echo"start: hr=".$start_hr."\tmin=".$start_min."\tsec=".$start_sec;
 		$end= $_POST['endtime'];
 		list($end_hr, $end_min, $end_sec) = explode(":", $end);
-		echo"\n end: hr=".$end_hr."\tmin=".$end_min."\tsec=".$end_sec;
+		//echo"\n end: hr=".$end_hr."\tmin=".$end_min."\tsec=".$end_sec;
 		list($date_day, $date_mon, $date_year) = explode("-", $date);
 		$date=$date_year.'-'.$date_mon.'-'.$date_day;
-		echo "date=".$date;
+		//echo "date=".$date;
 		$date_day=intval($date_day);
 		$date_mon=intval($date_mon);
 		$date_year=intval($date_year);
-		echo"\n date: day=".$date_day."\tmon=".$date_mon."\tyear=".$date_year;
+		//echo"\n date: day=".$date_day."\tmon=".$date_mon."\tyear=".$date_year;
 		$start_hr=intval($start_hr);
 		$start_min=intval($start_min);
 		$start_sec=intval($start_sec);
@@ -38,7 +38,7 @@ include_once ("/common/navbar_top_side.php");
 		$stime=mktime($start_hr,$start_min,$start_sec,$date_mon,$date_day,$date_year);
 		$etime=mktime($end_hr,$end_min,$end_sec,$date_mon,$date_day,$date_year);
 		
-		echo"Starttime:".$stime."\tEndtime: ".$etime;
+		//echo"Starttime:".$stime."\tEndtime: ".$etime;
 		if($_SESSION['usertype']=='admin')
 		$sql = "INSERT INTO `ers`.`adminbookings` (`date`, `starttime`, `endtime`, `userid`, `eid`) VALUES (?,?,?,?,?)";
 		elseif($_SESSION['usertype']=='user')
