@@ -1,11 +1,71 @@
 <?php
 
 require '/inc/core.inc.php';
-require '/inc/connect.inc.php';  
+  
 
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 {  
     $user_id=$_SESSION['user_id'];
+	
+	
+	function GetImageExtension($imagetype)
+   {
+      if(empty($imagetype)) return false;
+
+       switch($imagetype)
+    {
+
+           case 'image/bmp': return '.bmp';
+
+           case 'image/gif': return '.gif';
+
+           case 'image/jpeg': return '.jpg';
+
+           case 'image/png': return '.png';
+
+           default: return false;
+
+       }
+
+     }
+$id=$user_id['id'];
+ if (!empty($_FILES["uploadedimage"]["name"])) {
+
+     $file_name=$_FILES["uploadedimage"]["name"];
+
+    $temp_name=$_FILES["uploadedimage"]["tmp_name"];
+
+    $imgtype=$_FILES["uploadedimage"]["type"];
+
+    $ext= GetImageExtension($imgtype);
+
+    $imagename=$id.$ext;
+
+	if($_SESSION['usertype']=="admin")
+    $target_path = "img/admin/".$imagename;
+	else if($_SESSION['usertype']=="user")
+	$target_path = "img/user/".$imagename;
+
+if(move_uploaded_file($temp_name, $target_path)) {
+
+
+                if($_SESSION['usertype']=="admin")
+				$sql = "update admin set photo=? where id=?";
+				elseif($_SESSION['usertype']=="user")
+				$sql = "update users set photo=? where id=?";
+				  $query = $db->prepare($sql);
+				  $query->execute(array($target_path,$id));
+				  $user_id['photo']=$target_path;
+				  $_SESSION['user_id']['photo']=$target_path;
+}
+else{
+   echo'<script>
+   alert("Error While uploading image on the server");
+   </script>';
+   }
+}
+	
+	
 	
 	if(isset($_POST['name'])&&!empty($_POST['name'])){
 	$name=$_POST['name'];
@@ -127,11 +187,21 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	
 			  <!--form-->
 				
-				 <form method="POST" action="settings.php">
+				<form method="POST" action="settings.php" enctype="multipart/form-data">
+  					<div class="form-group">
+    					<label for="exampleInputFile"></label>
+						<img src="<?php echo $user_id['photo']; ?>" width="200" height="200"><br>
+						Wanna Edit??<br><br>
+    					<input name="uploadedimage" id="uploadedimage" type="file">
+			            <button type="submit">EDIT</button>
+  					</div>
+  	                </form>
+				<br><br>
+				 <form class="form" method="POST" action="settings.php" id="name_form">
 	  				<div class="form-group">
     					<label for="username">Username</label>
-						<input name="name" value="<?php echo $user_id['name'];?>"></input>
-						<button type="submit">EDIT</button>
+						<input name="name" id="username" value="<?php echo $user_id['name'];?>"></input>
+						<br><button type="submit">EDIT</button>
 							
   					</div>
 					</form>
@@ -183,16 +253,15 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
     	
   					</div>
 					</form>
-  					<!--<div class="form-group">
-    					<label for="exampleInputFile">Change Photo</label>
-    					<input type="file" id="exampleInputFile">
-    					<p class="help-block">Browse a photo from your files.</p>
-  					</div>-->
-  	             
+					
+					
 				        
          </div>
             <!-- /.container-fluid -->
+			
 			</div>
+			
+			
         <!-- /#page-wrapper -->';
 
 <?php    include_once("/common/close.php");

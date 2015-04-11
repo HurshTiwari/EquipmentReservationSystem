@@ -26,7 +26,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i><?php echo $user_id['name'];?><b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="profile.php"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
                             <a href="settings.php"><i class="fa fa-fw fa-gear"></i> Settings</a>
@@ -66,6 +66,9 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
                     </li>
                     <li>
                         <a href="addequipment.php"><i class="fa fa-fw fa-plus"></i> Add equipment</a>
+                    </li>
+					<li>
+                        <a href="editequipment.php"><i class="fa fa-fw fa-plus"></i> Edit equipment</a>
                     </li>
                     <li>
                         <a href="cancelbooking.php"><i class="fa fa-fw fa-remove"></i> Cancel Booking</a>

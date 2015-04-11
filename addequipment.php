@@ -7,27 +7,70 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	{
 		//temporary solution for image problem permanent in next iteration`
 		
+		
+		function GetImageExtension($imagetype)
+    {
+      if(empty($imagetype)) return false;
+
+       switch($imagetype)
+    {
+
+           case 'image/bmp': return '.bmp';
+
+           case 'image/gif': return '.gif';
+
+           case 'image/jpeg': return '.jpg';
+
+           case 'image/png': return '.png';
+
+           default: return false;
+
+       }
+
+     }
+ 
 		$sql = "SELECT max(`id`) AS maxid FROM `equipments`";
         $stmt=$db->prepare($sql);
 		$result=$stmt->execute();
 		if(!$result)
 			$flag=3;
-		$result_name=$stmt->fetch();	
-		$img="/img/equip/".($result_name[0]+1).".jpg";
+		$result_name=$stmt->fetch();
+
 		
+		if (!empty($_FILES["uploadedimage"]["name"])) {
+
+     $file_name=$_FILES["uploadedimage"]["name"];
+
+    $temp_name=$_FILES["uploadedimage"]["tmp_name"];
+
+    $imgtype=$_FILES["uploadedimage"]["type"];
+
+    $ext= GetImageExtension($imgtype);
+    $var= $result_name[0] + 1;
+    $imagename=$var.$ext;
+    $target_path = "img/equip/".$imagename;
+
+
+if(move_uploaded_file($temp_name, $target_path)) {
+        
 		$name=$_POST['ename'];
 		$desc=$_POST['description'];
 		
-		$sql2="INSERT INTO `equipments`( `name`, `description`, `image`) VALUES ?,?,?";
+		$sql2="INSERT INTO equipments (name,description,image) VALUES (:name,:description,:image)";
 		$stmt2=$db->prepare($sql2); 
-		/*$stmt2->bindParam(':name',$name,PDO::PARAM_STR);
-		$stmt2->bindParam(':desc',$desc,PDO::PARAM_STR);
-		$stmt2->bindParam(':img',$img,PDO::PARAM_STR);*/
-		$result2=$stmt2->execute(array($name,$desc,$img));
+		$result2=$stmt2->execute(array(':name'=>$name,':description'=>$desc,':image'=>$target_path));
 		if($result2)	
 			$flag=1;
 		else
 			$flag=2;
+}
+else{
+   echo'<script>
+   alert("Error While uploading image on the server");
+   </script>';
+   }
+}
+		
 	}
 	include_once("/common/head.php");
     include_once("/common/navbar_top_side.php");
@@ -72,7 +115,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 							</div>';
 				?>
             	<!--form-->
-				<form method="POST" action="addequipment.php">
+				<form method="POST" action="addequipment.php" enctype="multipart/form-data">
   					<div class="form-group">
 
     					<label for="ename">Equipment Name</label>
@@ -82,6 +125,11 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
   					<div class="form-group">
     					<label for="description">Equipment Description</label>
     					<input class="form-control" rows="3" name="description"></input>
+  					</div>
+					<div class="form-group">
+    					<label for="exampleInputFile"></label>
+						Upload Image<br><br>
+    					<input name="uploadedimage" id="uploadedimage" type="file">
   					</div>
   					<!--<div class="form-group">
     					<label for="exampleInputFile">Equipment's Photo</label>

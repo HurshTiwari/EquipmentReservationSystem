@@ -11,7 +11,7 @@
                
 					<div class="col-lg-4 col-lg-offset-2 col-md-4 col-md-offset-2">
                     <!--form-->
-					<form class="form" method="post" action="signup.php" id="registerform">
+					<form class="form" method="post"  action="signup.php" id="registerform">
 				            <div class="form-group">
                                 <p class="form-control-static ">Username&nbsp
                                 <input class="form-control" name="username" placeholder="xyz120001001"></p>
@@ -36,6 +36,12 @@
                                 <input class="form-control" name="rollno" type="text" placeholder="123456789">
 								</p>
                             </div>
+							<!--<div class="form-group">
+    					    <label for="exampleInputFile"></label>
+						    Upload DP<br><br>
+    					    <input name="uploadedimage" id="uploadedimage" type="file">
+  					        </div>-->
+
 							&nbsp&nbsp&nbsp&nbsp
 							<button class="btn btn-default" type="submit">Sign Up</button>						
 							</form>	
@@ -51,9 +57,17 @@
 					$users = new users($db);                       //If submitted,then we will create a 
 																				//   new "Users()"
 					echo $users->createAccount();                              // and "createAccount()"
-				}			// which is a method will be called
 				
-				?>
+				
+                }			// which is a method will be called
+				
+?>
+
+<?php
+
+
+
+?>
 				<form action="login.php">
 				<button  class="btn btn-default">Go Back</button>
 				</form>

@@ -18,7 +18,7 @@ include_once ("/common/navbar_top_side.php");
 	<div class="Page-Header"><center><h1>Perform Booking</h1></center></div>
 	
 	
-	<form name="myForm" id="myForm" role="form" method="POST" action="" class="form-vertical">
+	<form name="myForm" id="myForm" role="form" method="POST" action="booking2.php" class="form-vertical">
 		<div class="form-group">
 		<label for="username">Name:</label><input type="text" id ="username" value="<?php echo $user_id['name'];?>" readonly></input>
 		</div>
