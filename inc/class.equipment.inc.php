@@ -75,7 +75,6 @@ private $_db;
         }
 	}
 	
-	
 	function close(){$this->_db=null;}
 	
 }

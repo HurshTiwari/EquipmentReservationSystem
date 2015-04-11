@@ -20,7 +20,7 @@ $(document).ready(function(){
 									"Error! Starttime greater than end time"
 				);
 				
-	$('#starttime').change(function (){$('#endtime').removeData("previousValue");});			
+	$('#starttime').change(function (){$('#endtime').removeData("previousValue");});
 	$('#myForm').validate({
 		onkeyup:false,
 	    rules: {

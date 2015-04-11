@@ -25,8 +25,8 @@ while($result=$stmt->fetch()) {
         "title" => "Name: ".$name[0],
         "url" => "http://www.example.com/",
 		"class"=> "event-important",
-        "start" => (strtotime($result['starttime'])-16200).'000',
-        "end" => (strtotime($result['endtime'])-16200).'000'
+        "start" => (strtotime($result['starttime'])-16200+3600).'000',
+        "end" => (strtotime($result['endtime'])-16200+3600).'000'
     );
 }
 

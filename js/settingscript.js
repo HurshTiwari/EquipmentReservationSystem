@@ -11,67 +11,29 @@ $(document).ready(function(){
 				}, 
 				"Please enter a valid roll no"
 				);
-			jQuery.validator.setDefaults({
-			debug: true
-			});
-
-		$('#name_form').validate({
+		$.validator.addMethod("accuraterphoneno", 
+				function(value, element) {
+					return this.optional(element) || /^\d*$/.test(value);
+				}, 
+				"Please enter a valid phone no"
+				);
+		
+	$('#name_form').validate({
 	    rules: {
 		 username: {
-	        minlength: 6,
+	        minlength: 1,
+			maxlength: 75,
 	        required: true
-	      },
-		  
-		  /*password: {
-				required: true,
-				minlength: 6
-			},
-			confirm_password: {
-				required: true,
-				minlength: 6,
-				equalTo: "#password"
-			},
-		  
-	      email: {
-	        required: true,
-	        customemail: true
-	      },
-		  
-	     
-		   rollno: {
-	        required: true,
-			accuraterollno:true
-	      },*/
+	      }
 	    },
 		messages: {
 		 username: {
-	        minlength: "Please enter minimum 6 letters",
-	        required: "Sorry! Can't leave this blank"
-	      },
+	        minlength: "Please enter minimum 1 letter",
+			maxlength: "Maximium 75 letters allowed"
+	      }
 		  
-		  /*password: {
-				required: "Sorry! Can't leave this blank",
-				minlength: "Please enter minimum 6 letters"
-			},
-			confirm_password: {
-				required: "Please confirm the password",
-				minlength: "Please enter minimum 6 letters",
-				equalTo: "Passwords don't match"
-			},
-		  
-	      email: {
-	        required: "Sorry! Can't leave this blank",
-	        email: "Please enter a valid email"
-	      },
-		  
-	     
-		   rollno: {
-	        required: "Sorry! Can't leave this blank"
-	      },*/
 	    },
-		
-		
-			highlight: function(element) {
+		highlight: function(element) {
 				$(element).closest('.control-group').removeClass('success').addClass('error');
 			},
 			success: function(element) {
@@ -81,4 +43,136 @@ $(document).ready(function(){
 			}
 	  });
 
+	$('#password_form').validate({
+	    rules: {
+		 password: {
+	        minlength: 2,
+			maxlength: 75,
+	        required: true
+	      }
+	    },
+		messages: {
+		 password: {
+	        minlength: "Please enter minimum 2 letter",
+			maxlength: "Maximium 75 letters allowed"
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+	$('#email_form').validate({
+	    rules: {
+		 email: {
+	        required: true,
+			customemail:true
+	      }
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+	$('#tempadd_form').validate({
+	    rules: {
+		 tempadd: {
+	        minlength: 10,
+			maxlength: 250,
+	      }
+	    },
+		messages: {
+		 tempadd: {
+	        minlength: "Please enter minimum 10 letters",
+			maxlength: "Maximium 250 letters allowed"
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+	  $('#peradd_form').validate({
+	    rules: {
+		 peradd: {
+	        minlength: 10,
+			maxlength: 250
+	      }
+	    },
+		messages: {
+		 peradd: {
+	        minlength: "Please enter minimum 10 letters",
+			maxlength: "Maximium 250 letters allowed"
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+	  $('#phone_form').validate({
+	    rules: {
+		 phoneno: {
+	        minlength: 10,
+			maxlength: 10,
+	        accuraterphoneno: true 
+	      }
+	    },
+		messages: {
+		 phoneno: {
+	        minlength: "Please enter a valid phone number ",
+			maxlength: "Please enter a valid phone number "
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+	  $('#roll_form').validate({
+	    rules: {
+		 rollno: {
+			maxlength: 15,
+			accuraterollno:true
+	      }
+	    },
+		messages: {
+		 username: {
+			maxlength: "Maximium 15 letters allowed"
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
 }); // end document.ready

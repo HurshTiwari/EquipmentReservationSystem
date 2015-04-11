@@ -140,7 +140,7 @@ include_once("/common/navbar_top_side.php");
   					</div>
   	                </form>
 				 <br><br>
-				 <form class="form" method="POST" action="editequipmentform.php">
+				 <form class="form" method="POST" action="editequipmentform.php" id="name_form" name="name_form">
 	  				<div class="form-group">
     					<label for="equip_name">Equipment Name</label>
 						<input name="equip_name" id="equip_name" value="<?php echo $ename;?>"></input>
@@ -149,7 +149,7 @@ include_once("/common/navbar_top_side.php");
   					</div>
 					</form>
 				
-				<form class="form" method="POST" action="editequipmentform.php">
+				<form class="form" method="POST" action="editequipmentform.php" id="desc_form" name ="desc_form">
 	  				<div class="form-group">
     					<label for="equip_desc">Equipment Description</label>
 						<input name="equip_desc" id="equip_desc" value="<?php echo $desc;?>"></input>
@@ -159,14 +159,63 @@ include_once("/common/navbar_top_side.php");
 					</form>
 			</div>
 				<!-- /.container-fluid -->
-				<!-- /.container-fluid -->
-				
 		</div>
-		<!--<script type="text/javascript" src="js/underscore-min.js"></script>
-			<script type="text/javascript" src="components/jstimezonedetect/jstz.min.js"></script>
-			<script type="text/javascript" src="js/calendar.js"></script>
-			<script type="text/javascript" src="js/app.js"></script>-->
-        
+     <script src="js/jquery.validate.js"></script>	
+	 <script type="text/javascript">
+	 $(document).ready(function(){
+	 $('#name_form').validate({
+	    rules: {
+		 equip_name: {
+	        minlength: 5,
+			maxlength: 75,
+	        required: true
+	      }
+	    },
+		messages: {
+		 equip_name: {
+	        minlength: "Please enter minimum 5 letter",
+			maxlength: "Maximium 75 letters allowed"
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+	  
+	  $('#desc_form').validate({
+	    rules: {
+		 equip_desc: {
+	        minlength: 15,
+			maxlength: 2000,
+	        required: true
+	      }
+	    },
+		messages: {
+		 equip_desc: {
+	        minlength: "Please enter minimum 15 letter",
+			maxlength: "Maximium 2000 letters allowed"
+	      }
+		  
+	    },
+		highlight: function(element) {
+				$(element).closest('.control-group').removeClass('success').addClass('error');
+			},
+			success: function(element) {
+				element
+				.text('OK!').addClass('valid')
+				.closest('.control-group').removeClass('error').addClass('success');
+			}
+	  });
+
+
+	 });
+	 </script>
 			
 
 <?php include_once("/common/close.php");

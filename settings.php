@@ -67,10 +67,10 @@ else{
 	
 	
 	
-	if(isset($_POST['name'])&&!empty($_POST['name'])){
-	$name=$_POST['name'];
+	if(isset($_POST['username'])&&!empty($_POST['username'])){
+	$name=$_POST['username'];
 	$id=$user_id['id'];
-	 if($_POST['name']!=$user_id['name']){
+	 if($_POST['username']!=$user_id['username']){
 				if($_SESSION['usertype']=="admin")
 				$sql = "update admin set name=? where id=?";
 				elseif($_SESSION['usertype']=="user")
@@ -197,58 +197,58 @@ else{
   					</div>
   	                </form>
 				<br><br>
-				 <form class="form" method="POST" action="settings.php" id="name_form">
+				 <form class="form" method="POST" action="settings.php" id="name_form" name="name_form">
 	  				<div class="form-group">
     					<label for="username">Username</label>
-						<input name="name" id="username" value="<?php echo $user_id['name'];?>"></input>
-						<br><button type="submit">EDIT</button>
+						<input name="username" id="username" type="text" value="<?php echo $user_id['name'];?>"></input>
+						<button type="submit">EDIT</button>
 							
   					</div>
 					</form>
-					<form method="POST" action="settings.php">
+					<form method="POST" action="settings.php" id="password_form" name="password_form">
   					<div class="form-group">
     					<label for="password">Password</label>
-						<input name="password" type="password" value="<?php echo $user_id['password'];?>"></input>
+						<input name="password" id="password" type="password" value="<?php echo $user_id['password'];?>"></input>
 						<button type="submit">EDIT</button>
 
   					</div>
 					</form>
-					<form method="POST" action="settings.php">
+					<form method="POST" action="settings.php" id="email_form" name="email_form">
   					<div class="form-group">
     					<label for="email">Email address</label>
-						<input name="email" value="<?php echo $user_id['email'];?>" ></input>
+						<input name="email" id="email" value="<?php echo $user_id['email'];?>" type="text" ></input>
 						<button type="submit">EDIT</button>
     					
   					</div>
 					</form>
-					<form method="POST" action="settings.php">
+					<form method="POST" action="settings.php" id="tempadd_form" name="tempadd_form">
   					<div class="form-group">
     					<label for="tempaddress">Temporary address</label>
-						<input name="tempadd" value="<?php echo $user_id['tempaddress'];?>" ></input>
+						<input name="tempadd" id="tempadd" value="<?php echo $user_id['tempaddress'];?>" type="text" ></input>
 						<button type="submit">EDIT</button>
     					
   					</div>
 					</form>
-					<form method="POST" action="settings.php">
+					<form method="POST" action="settings.php" id="peradd_form" name="peradd_form">
   					<div class="form-group">
     					<label for="peraddress">Permanent address</label>
-						<input name="peradd" value="<?php echo $user_id['peraddress'];?>" ></input>
+						<input name="peradd" id="peradd" value="<?php echo $user_id['peraddress'];?>" type="text" ></input>
 						<button type="submit">EDIT</button>
     					
   					</div>
 					</form>
-					<form method="POST" action="settings.php">
+					<form method="POST" action="settings.php" id="phone_form" name="phone_form">
 					<div class="form-group">
-    					<label for="peraddress">Ph No</label>
-						<input name="phoneno" value="<?php echo $user_id['phoneno'];?>" ></input>
+    					<label for="phoneno">Ph No</label>
+						<input name="phoneno" id="phoneno" value="<?php echo $user_id['phoneno'];?>" type="text"></input>
 						<button type="submit">EDIT</button>
     					
   					</div>
 					</form>
-					<form method="POST" action="settings.php">
+					<form method="POST" action="settings.php" id="roll_form" name="roll_form">
 					<div class="form-group">
-    					<label for="peraddress">Roll No</label>
-						<input name="rollno" value="<?php echo $user_id['rollno'];?>" ></input>
+    					<label for="rollno">Roll No</label>
+						<input name="rollno" id="rollno" value="<?php echo $user_id['rollno'];?>" ></input>
 						<button type="submit">EDIT</button>
     	
   					</div>
@@ -256,13 +256,15 @@ else{
 					
 					
 				        
-         </div>
+			</div>
             <!-- /.container-fluid -->
 			
-			</div>
+	</div>
+	<!-- /#page-wrapper -->';
+<script src="js/jquery.validate.js"></script>	
+<script src="js/settingscript.js"></script>
 			
-			
-        <!-- /#page-wrapper -->';
+      
 
 <?php    include_once("/common/close.php");
 }

@@ -27,8 +27,16 @@ echo $selected."</br>";
 			$result2=$stmt2->execute();	
 			if(!$result2)
 				$flag=2;
-			else
+			else{
 				$stmt2->closeCursor();
+				$sql3="DELETE FROM `addusers` WHERE name= :name";
+				$stmt3=$db->prepare($sql3);
+				$stmt3->bindParam(':name',$row['name'],PDO::PARAM_STR);
+				$result3=$stmt3->execute();
+					if(!$result2){$flag=2;}
+					else
+					$stmt3->closeCursor();
+				}
 			}
 		$stmt->closeCursor();
 	}
@@ -37,6 +45,8 @@ if($flag==1)
 echo"Error! Selection was not done successfully";
 elseif($flag==2)
 echo"Error! Insertion was not done successfully";
+elseif($flag==3)
+echo"Error! Deletion was not done successfully";
 else
 {$db=null;
 echo"Insertion done successfully";}

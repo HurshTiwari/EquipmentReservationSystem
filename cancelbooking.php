@@ -13,7 +13,7 @@ include_once ("/common/navbar_top_side.php");
 ?>
 <div id="page-wrapper">
 	<div class="container-fluid">
-	<div class="Page-Header"><center><h1>New User Requests</h1></center></div>
+	<div class="Page-Header"><center><h1>Cancel Bookings</h1></center></div>
 	
 	<div class="row">
 	<form action="cancel.php" method="POST">

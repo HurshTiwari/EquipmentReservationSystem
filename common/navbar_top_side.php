@@ -64,6 +64,9 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
                     <li>
                         <a href="addaccount.php"><i class="fa fa-fw fa-user"></i> Add user</a>
                     </li>
+					<li>
+                        <a href="deleteaccount.php"><i class="fa fa-fw fa-user"></i> Delete users</a>
+                    </li>
                     <li>
                         <a href="addequipment.php"><i class="fa fa-fw fa-plus"></i> Add equipment</a>
                     </li>
