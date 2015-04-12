@@ -3,7 +3,7 @@
 	"use strict";
 
 	var options = {
-		events_source: 'feedevent.php',
+		events_source: 'feedgiant.php',
 		view: 'month',
 		tmpl_path: 'tmpls/',
 		tmpl_cache: false,
@@ -63,14 +63,7 @@
 				//alert("check="+check+" cur="+cur);
 				//alert('date:'+final);
 				$("#sdate").val(final);
-				if (check < (cur-86400000))		
-					{$("#addbooking").hide()}
-				else
-					{$("#addbooking").show()}
-				}		
-				
-				
-				
+				$("#addbooking").hide();}
 		},
 		classes: {
 			months: {

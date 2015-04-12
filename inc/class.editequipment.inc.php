@@ -51,7 +51,7 @@ private $_db;
 							.'<input type="image" id="img" name ="img" class="img-responsive" src="'.$img.'" alt="Sorry! Can\'t load the image ">'
 							.'<h3>'.$name.'</h3>'
 							.'<p>'
-							.'Description........................ '.$desc
+							.'Description: '.$desc
 							.'</p>'
 							.'<input id="img_t" name="img_t" type="hidden" value="'.$img.'">'
 							.'<input id="desc" name="desc" type="hidden" value="'.$desc.'">'
