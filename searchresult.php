@@ -43,7 +43,7 @@ if(isset($_SESSION['search_equip'])&&!empty($_SESSION['search_equip'])){
 				echo
 						'<form role="form" action="test.php" method="post"><div class="col-sm-6 col-md-4">'
 							.'<a>'
-							.'<input type="image" id="img" name ="img" class="img-responsive" src="'.$img.'" alt="Sorry! Can\'t load the image ">'
+							.'<input type="image" id="img" name ="img" class="img-responsive" src="'.$img.'"  alt="Sorry! Can\'t load the image ">'
 							.'<h3>'.$name.'</h3>'
 							.'<p>'
 							.'Description........................ '.$desc
@@ -64,10 +64,65 @@ if(isset($_SESSION['search_equip'])&&!empty($_SESSION['search_equip'])){
 	   else{
 	      echo'<script>alert("result not obtained for the query stmt1 !!");</script>';
 	   }
-	   unset($_SESSION['search_equip']);
+	   //unset($_SESSION['search_equip']);
  }
- else{
+ 
+ /*else{
   header('Location:index.php');
+ }*/
+ 
+ else if(isset($_SESSION['search_user'])&&!empty($_SESSION['search_user'])){
+     $search_user=$_SESSION['search_user'];
+	 $stmt1 = $db->prepare("SELECT * FROM users WHERE name like ?");
+	 $result=$stmt1->execute(array('%'.$search_user.'%'));
+	 if($result){
+	   $i=0;
+	   while($row = $stmt1->fetch()){
+				$id=$row['id'];
+				$name=$row['name'];
+				$photo=$row['photo'];
+				$rollno=$row['rollno'];
+				$email=$row['email'];
+				$phoneno=$row['phoneno'];
+				$peraddress=$row['peraddress'];
+				if($i%3==0)
+				{
+				echo '<div class="row">';
+				}
+				
+				echo
+						'<form role="form" action="searchprofile.php" method="post"><div class="col-sm-6 col-md-4">'
+							.'<a>'
+							.'<input type="image" id="photo" name ="photo" class="img-responsive" src="'.$photo.'" width="200" height="200" alt="Sorry! Can\'t load the image ">'
+							.'<h3>Name--'.$name.'</h3>'
+							.'<p>'
+							.'Roll No--'.$rollno
+							.'</p>'
+							.'<input id="photo_t" name="photo_t" type="hidden" value="'.$photo.'">'
+							.'<input id="uname" name="uname" type="hidden" value="'.$name.'">'
+							.'<input id="rollno" name="rollno" type="hidden" value="'.$rollno.'">'
+							.'<input id="email" name="email" type="hidden" value="'.$email.'">'
+							.'<input id="phoneno" name="phoneno" type="hidden" value="'.$phoneno.'">'
+							.'<input id="peraddress" name="peraddress" type="hidden" value="'.$peraddress.'">'
+							.'<input id="id" name="id" type="hidden" value="'.$id.'">'
+						.'</a></form></div>';
+				if(($i+1)%3==0)
+				{
+				echo "</div>";
+				}
+			
+				$i++;
+			}
+	   }
+	   else{
+	      echo'<script>alert("result not obtained for the query stmt1 !!");</script>';
+	   }
+	   //unset($_SESSION['search_user']);
+ }
+ 
+ 
+else{
+  header('Location:search.php');
  }
 
 ?>					

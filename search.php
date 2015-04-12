@@ -17,10 +17,26 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	 }
 	 else{
 	  $_SESSION['search_equip']=$search_equip;
+	  unset($_SESSION['search_user']);
 	  header('Location:searchresult.php');
 	 }
    }
 
+   
+   if(isset($_POST['search_user'])&&!empty($_POST['search_user'])){
+	 $search_user=$_POST['search_user'];
+	 $stmt = $db->prepare("SELECT count(*) FROM users WHERE name like ?");
+	 $result=$stmt->execute(array('%'.$search_user.'%'));
+	 $count=$stmt->fetch();
+	 if($count[0]==0){
+	  echo'<script>alert("No results found!!");</script>';
+	 }
+	 else{
+	  $_SESSION['search_user']=$search_user;
+	  unset($_SESSION['search_equip']);
+	  header('Location:searchresult.php');
+	 }
+   }
     
 
 	include_once("/common/head.php");

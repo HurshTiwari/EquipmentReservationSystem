@@ -41,14 +41,14 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 				 <form class="form" method="POST" action="settings.php" id="name_form">
 	  				<div class="form-group">
     					<label for="username">Username</label>
-						<input name="name" id="username" value="<?php echo $user_id['name'];?>"></input>
+						<input name="name" id="username" value="<?php echo $user_id['name'];?>" disabled></input>
 							
   					</div>
 					</form>
 					<form method="POST" action="settings.php">
   					<div class="form-group">
     					<label for="password">Password</label>
-						<input name="password" type="password" value="<?php echo $user_id['password'];?>"></input>
+						<input name="password" type="password" value="<?php echo $user_id['password'];?>" disabled></input>
 						
 
   					</div>
@@ -56,7 +56,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<form method="POST" action="settings.php">
   					<div class="form-group">
     					<label for="email">Email address</label>
-						<input name="email" value="<?php echo $user_id['email'];?>" ></input>
+						<input name="email" value="<?php echo $user_id['email'];?>" disabled></input>
 						
     					
   					</div>
@@ -64,7 +64,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<form method="POST" action="settings.php">
   					<div class="form-group">
     					<label for="tempaddress">Temporary address</label>
-						<input name="tempadd" value="<?php echo $user_id['tempaddress'];?>" ></input>
+						<input name="tempadd" value="<?php echo $user_id['tempaddress'];?>" disabled></input>
 						
     					
   					</div>
@@ -72,7 +72,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<form method="POST" action="settings.php">
   					<div class="form-group">
     					<label for="peraddress">Permanent address</label>
-						<input name="peradd" value="<?php echo $user_id['peraddress'];?>" ></input>
+						<input name="peradd" value="<?php echo $user_id['peraddress'];?>" disabled></input>
 						
     					
   					</div>
@@ -80,7 +80,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<form method="POST" action="settings.php">
 					<div class="form-group">
     					<label for="peraddress">Ph No</label>
-						<input name="phoneno" value="<?php echo $user_id['phoneno'];?>" ></input>
+						<input name="phoneno" value="<?php echo $user_id['phoneno'];?>" disabled></input>
 						
     					
   					</div>
@@ -88,7 +88,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<form method="POST" action="settings.php">
 					<div class="form-group">
     					<label for="peraddress">Roll No</label>
-						<input name="rollno" value="<?php echo $user_id['rollno'];?>" ></input>
+						<input name="rollno" value="<?php echo $user_id['rollno'];?>" disabled></input>
 						
     	
   					</div>
