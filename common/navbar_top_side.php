@@ -95,6 +95,9 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 					<li>
                         <a href="search.php"><i class="fa fa-fw fa-search"></i>Search</a>
                     </li>
+					<li>
+                        <a href="giant.php"><i class="fa fa-fw fa-search"></i>View Full Calendar</a>
+                    </li>
 					<?php } ?>
                 </ul>
             </div>
