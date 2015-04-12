@@ -46,6 +46,15 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	$result2=$stmt2->fetch();
 	$stmt2->closeCursor();
 	
+	if($result2['status']=0)
+		$status="NOT Confirmed";
+	elseif($result2['status']=1)
+		$status="Confirmed";
+	elseif($result2['status']=2)
+		$status="Cancelled";
+	else
+	$status="Unknown";
+	
 	
 	$sql3="Select name from equipments where id= :eid";
 	$stmt3=$db->prepare($sql3);
@@ -131,6 +140,12 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 						<div class="form-group">
     					<label for="endtime">End Date And Time</label>
 						<input name="endtime" id="endtime" value="<?php echo $result2['endtime'];?>" readonly></input>
+						</div>
+						</form>
+						<form>
+						<div class="form-group">
+    					<label for="status">Status</label>
+						<input name="status" id="status" value="<?php echo $status;?>" readonly></input>
 						</div>
 						</form>
 					</div>

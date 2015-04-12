@@ -36,6 +36,7 @@ $_SESSION['usertype']=$type;
 									 {
 									$userid= $stmt->fetch(); 
 									$_SESSION['user_id']=$userid; //['id'];
+									
 									//$_SESSION['username']=$userid['name'];
 									
 									header('Location:index.php');		
