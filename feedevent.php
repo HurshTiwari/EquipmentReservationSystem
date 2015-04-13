@@ -46,8 +46,8 @@ while($result2=$stmt4->fetch()) {
         "title" => "Name: ".$adminname[0],
         "url" => "viewbooking.php?id=".$result2['userid']."&eid=".$result2['eid']."&type=user&starttime=".(strtotime($result2['starttime'])-16200+3600),
 		"class"=> "event-important",
-        "start" => strtotime($result2['starttime']).'000',
-        "end" => strtotime($result2['endtime']).'000'
+        "start" => (strtotime($result2['starttime'])-16200+3600).'000',
+        "end" => (strtotime($result2['endtime']) -16200+3600).'000'
     );
 }
 echo json_encode(array('success' => 1, 'result' => $out));

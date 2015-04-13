@@ -47,7 +47,7 @@ private $_db;
 				
 				echo
 						'<form role="form" action="test.php" method="post"><div class="col-sm-6 col-md-4">'
-							.'<a>'
+							
 							.'<input type="image" class="img-responsive" src="'.$img.'" alt="Sorry! Can\'t load the image ">'
 							.'<h3>'.$name.'</h3>'
 							.'<p>'
@@ -55,7 +55,7 @@ private $_db;
 							.'</p>'
 							.'<input id="ename" name="ename" type="hidden" value="'.$name.'">'
 							.'<input id="eid" name="eid" type="hidden" value="'.$eid.'">'
-						.'</a></form></div>';
+						.'</form></div>';
 				if(($i+1)%3==0)
 				{
 				echo "</div>";

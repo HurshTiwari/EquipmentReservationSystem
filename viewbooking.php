@@ -46,11 +46,11 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	$result2=$stmt2->fetch();
 	$stmt2->closeCursor();
 	
-	if($result2['status']=0)
+	if($result2['status']==0)
 		$status="NOT Confirmed";
-	elseif($result2['status']=1)
+	elseif($result2['status']==1)
 		$status="Confirmed";
-	elseif($result2['status']=2)
+	elseif($result2['status']==2)
 		$status="Cancelled";
 	else
 	$status="Unknown";
@@ -99,26 +99,26 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 				 <form class="form">
 	  				<div class="form-group">
     					<label for="username">Username</label>
-						<input name="name" id="username" value="<?php echo $result['name'];?>"readonly></input>
+						<input name="name" id="username" value="<?php echo $result['name'];?>"readonly disabled></input>
 							
   					</div>
 					</form>
 					<form method="POST" action="">
   					<div class="form-group">
     					<label for="email">Email address</label>
-						<input name="email" value="<?php echo $result['email'];?>" readonly></input>
+						<input name="email" value="<?php echo $result['email'];?>" readonly disabled></input>
   					</div>
 					</form>
 					<form>
   					<div class="form-group">
     					<label for="tempadd">Temporary address</label>
-						<input name="tempadd" id="tempadd" value="<?php echo $result['tempaddress'];?>" readonly></input>
+						<input name="tempadd" id="tempadd" value="<?php echo $result['tempaddress'];?>" readonly disabled></input>
   					</div>
 					</form>
 					<form>
 					<div class="form-group">
     					<label for="phoneno">Ph No</label>
-						<input name="phoneno" id="phoneno" value="<?php echo $user_id['phoneno'];?>" readonly></input>
+						<input name="phoneno" id="phoneno" value="<?php echo $user_id['phoneno'];?>" readonly disabled></input>
   					</div>
 					</form>
 					
@@ -127,25 +127,25 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 						<form>
 						<div class="form-group">
     					<label for="ename">Equipment Name</label>
-						<input name="ename" id="ename" value="<?php echo $ename;?>" readonly></input>
+						<input name="ename" id="ename" value="<?php echo $ename;?>" readonly disabled></input>
 						</div>
 						</form>
 						<form>
 						<div class="form-group">
     					<label for="starttime">Start Date And Time</label>
-						<input name="starttime" id="starttime" value="<?php echo $result2['starttime'];?>" readonly></input>
+						<input name="starttime" id="starttime" value="<?php echo $result2['starttime'];?>" readonly disabled></input>
 						</div>
 						</form>
 						<form>
 						<div class="form-group">
     					<label for="endtime">End Date And Time</label>
-						<input name="endtime" id="endtime" value="<?php echo $result2['endtime'];?>" readonly></input>
+						<input name="endtime" id="endtime" value="<?php echo $result2['endtime'];?>" readonly disabled></input>
 						</div>
 						</form>
 						<form>
 						<div class="form-group">
     					<label for="status">Status</label>
-						<input name="status" id="status" value="<?php echo $status;?>" readonly></input>
+						<input name="status" id="status" value="<?php echo $status;?>" readonly disabled></input>
 						</div>
 						</form>
 					</div>

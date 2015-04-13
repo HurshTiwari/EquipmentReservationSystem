@@ -20,7 +20,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
                         </h1>
                         <ul class="alert alert-success alert-dismissable">
                             <li>
-                                <i class="fa fa-tag"></i> Click at the links below to edit the respective equipment 
+                                <i class="fa fa-tag"></i> Click at the images below to edit the respective equipment 
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">
 								&times;
 								</button>

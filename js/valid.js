@@ -32,19 +32,24 @@ $(document).ready(function(){
 	        isvalidtime: true,
 	        required: true,
 			startandend: "#starttime",
-			 remote:
+			remote:
 			{
 				url:"checktimeclash.php",
 				type:"post",
 				data:{
-					"startdate" : function(){ return $("#startdate").val();},
-					"starttime" : function(){ return $("#starttime").val();}
+					startdate : function(){ return $("#startdate").val();},
+					starttime : function(){ return $("#starttime").val();}
 					}
 				}
 			}  
 		}
 	    ,
-		  
+		messages: {
+			endtime:
+			{
+					remote:"Sorry!My javascript is wrong"
+			}
+		} , 
 		highlight: function(element) {
 				$(element).closest('.control-group').removeClass('success').addClass('error');
 			},
