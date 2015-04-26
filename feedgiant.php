@@ -1,5 +1,5 @@
 <?php
-include_once ("/common/base.php");
+include_once ("common/base.php");
 $start = time()-(31*24*60*60);	
 $end   = time()+(31*24*60*60);
 $sql = "SELECT * FROM `bookings` WHERE UNIX_TIMESTAMP(`starttime`) between ? and ?";

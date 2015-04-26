@@ -1,11 +1,10 @@
 <?php
 
-require_once '/inc/core.inc.php';
-include_once ("/common/head.php");
+require_once 'inc/core.inc.php';
+include_once ("common/head.php");
 if(isset($_SESSION['usertype'])&&isset($_SESSION['user_id'])){
 	if($_SESSION['usertype']=='admin'){
-include_once ("/common/navbar_top_side.php");
-?>
+include_once ("common/navbar_top_side.php");?>
 <div id="page-wrapper">
 	<div class="container-fluid">
 	<div class="Page-Header"><center><h1>New User Requests</h1></center></div>
@@ -48,5 +47,5 @@ include_once ("/common/navbar_top_side.php");
 	</div>
 <?php		}
 	}
-include_once("/common/close.php");
+include_once("common/close.php");
 ?>

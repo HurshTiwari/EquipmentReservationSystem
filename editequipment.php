@@ -1,11 +1,9 @@
 <?php
 
-require_once '/inc/core.inc.php';
-if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
+require_once 'inc/core.inc.php';if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 {   
-	include_once("/common/head.php");
-       include_once("/common/navbar_top_side.php");
-?>
+	include_once("common/head.php");
+       include_once("common/navbar_top_side.php");?>
        
 
           <div id="page-wrapper">
@@ -30,7 +28,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
                 </div>
                 <!-- /.row -->
        <?php 
-	   include_once("/inc/class.editequipment.inc.php");
+	   include_once("inc/class.editequipment.inc.php");
 		$equipment= new equipment($db);
 		$equipment->display();
 		$equipment->close();
@@ -41,7 +39,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 			</div>
         <!-- /#page-wrapper -->';
 
-<?php    include_once("/common/close.php");
+<?php    include_once("common/close.php");
 }
 	
 else{

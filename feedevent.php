@@ -1,5 +1,5 @@
 <?php
-include_once ("/common/base.php");
+include_once ("inc/core.inc.php");
 if(isset($_SESSION['eid']))
 $eid=$_SESSION['eid'];
 else

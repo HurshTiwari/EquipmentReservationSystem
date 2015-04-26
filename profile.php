@@ -1,6 +1,6 @@
 <?php
 
-require '/inc/core.inc.php';
+require 'inc/core.inc.php';
   
 
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
@@ -12,10 +12,9 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 	echo "hello!!";
     $user_id=$_SESSION['user_id'];
 
-	include_once("/common/head.php");
+	include_once("common/head.php");
 
-       include_once("/common/navbar_top_side.php");
-?>       
+       include_once("common/navbar_top_side.php");?>       
 
           <div id="page-wrapper">
 			<div class="container">
@@ -104,7 +103,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 			
         <!-- /#page-wrapper -->
 
-<?php    include_once("/common/close.php");
+<?php    include_once("common/close.php");
 
 	}
 else{

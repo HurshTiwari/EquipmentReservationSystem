@@ -1,9 +1,9 @@
 <!DOCTYPE php>
-<?php include_once("/inc/core.inc.php");
+<?php include_once("inc/core.inc.php");
 	if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
 ?>
-<?php include_once("/common/head.php");?>
-<?php include_once("/common/navbar_top_side.php");
+<?php include_once("common/head.php");?>
+<?php include_once("common/navbar_top_side.php");
 if(isset($_POST['eid']))	
 	{$_SESSION['eid']=$_POST['eid'];}
 if(!isset($_POST['ename']))
@@ -56,7 +56,7 @@ else
 			<script type="text/javascript" src="js/app.js"></script>
 			
 
-<?php include_once("/common/close.php");
+<?php include_once("common/close.php");
 }else 
 {
 header("login.php");

@@ -1,5 +1,5 @@
 <?php
-require '/inc/core.inc.php';
+require 'inc/core.inc.php';
 session_unset(); 
 session_destroy();
 header('Location:'.$http_referer);

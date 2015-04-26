@@ -1,6 +1,5 @@
 <?php
-require_once '/inc/core.inc.php';
-if( isset($_POST['username']) && isset($_POST['password'])&&isset($_POST['usertype'])){
+require_once 'inc/core.inc.php';if( isset($_POST['username']) && isset($_POST['password'])&&isset($_POST['usertype'])){
 $username=$_POST['username'];
 $password=$_POST['password'];
 $type=$_POST['usertype'];

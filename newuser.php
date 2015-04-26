@@ -1,5 +1,5 @@
 <?php
-include_once('/inc/connect.inc.php');
+include_once('inc/connect.inc.php');
 if(!empty($_POST['check_list'])){
 // Loop to store and display values of individual checked checkbox.
 $flag=0;

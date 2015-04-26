@@ -1,7 +1,6 @@
 <?php
 
-require_once '/inc/core.inc.php';
-
+require_once 'inc/core.inc.php';
 
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 {   $userid=$_SESSION['user_id']['id'];
@@ -24,8 +23,8 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 		
 		
 	
-	include_once("/common/head.php");
-	include_once("/common/navbar_top_side.php");
+	include_once("common/head.php");
+	include_once("common/navbar_top_side.php");
 	   $show=0;//have to set it to zero.
 		if($result)
 			{
@@ -144,7 +143,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 				<?php }?>
                 <!-- /.row -->
        <?php 
-	   include_once("/inc/class.equipment.inc.php");
+	   include_once("inc/class.equipment.inc.php");
 		$equipment= new equipment($db);
 		$equipment->display();
 		$equipment->close();
@@ -155,7 +154,7 @@ if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 			</div>
         <!-- /#page-wrapper -->';
 
-<?php    include_once("/common/close.php");
+<?php    include_once("common/close.php");
 }
 	
 else{

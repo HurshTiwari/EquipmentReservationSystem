@@ -1,7 +1,7 @@
 <?php
 
-require '/inc/core.inc.php';
-require '/inc/connect.inc.php';
+require 'inc/core.inc.php';
+require 'inc/connect.inc.php';
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 {   $user_id=$_SESSION['user_id'];
     $temp=$user_id['id'];
@@ -37,9 +37,8 @@ $n_username=$_POST['new_username'];
 				 </html>';
 				}
 
-	include_once("/common/head.php");
-       include_once("/common/navbar_top_side.php");
-
+	include_once("common/head.php");
+       include_once("common/navbar_top_side.php");
 
 
 
@@ -61,7 +60,7 @@ $n_username=$_POST['new_username'];
 			</div>
         <!-- /#page-wrapper -->';
 
-<?php    include_once("/common/close.php");
+<?php    include_once("common/close.php");
 }
 	
 else{

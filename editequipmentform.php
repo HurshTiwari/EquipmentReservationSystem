@@ -1,5 +1,5 @@
 <!DOCTYPE php>
-<?php include_once("/inc/core.inc.php");
+<?php include_once("inc/core.inc.php");
 	if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
 	
 	//function to get image extension
@@ -114,8 +114,8 @@ else{
 	
 	
 	
-	include_once("/common/head.php");
-include_once("/common/navbar_top_side.php");
+	include_once("common/head.php");
+include_once("common/navbar_top_side.php");
 ?>
 		<div id="page-wrapper">
 		<div class="container-fluid">
@@ -218,7 +218,7 @@ include_once("/common/navbar_top_side.php");
 	 </script>
 			
 
-<?php include_once("/common/close.php");
+<?php include_once("common/close.php");
 }else 
 {
 header ('Location:login.php');

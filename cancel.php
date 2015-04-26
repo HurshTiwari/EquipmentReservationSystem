@@ -1,6 +1,5 @@
 <?php
-include_once('/inc/core.inc.php');
-//<<<<<<< HEAD
+include_once('inc/core.inc.php');//<<<<<<< HEAD
 if(isset($_SESSION['user_id'])){
 //=======
 //if(isset($_SESSION['user_id'])&&isset($_SESSION['username'])){

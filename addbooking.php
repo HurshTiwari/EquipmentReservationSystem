@@ -1,5 +1,5 @@
 <?php
-require_once "/inc/core.inc.php";
+require_once "inc/core.inc.php";
 if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
 $user_id=$_SESSION['user_id'];
 $ename=$_SESSION['ename'];
@@ -10,8 +10,8 @@ $sdate=$_SESSION['sdate'];
 
 
 $_SESSION['sdate']=$sdate;
-include_once ("/common/head.php");
-include_once ("/common/navbar_top_side.php");
+include_once ("common/head.php");
+include_once ("common/navbar_top_side.php");
 ?>
 <div id="page-wrapper">
 	<div class="container-fluid">
@@ -48,7 +48,7 @@ include_once ("/common/navbar_top_side.php");
 <script src="js/jquery.validate.js"></script>	
 <script src="js/valid.js"></script>
 <?php
-include_once ("/common/close.php");}
+include_once ("common/close.php");}
 else
 {
   include 'login.php';  

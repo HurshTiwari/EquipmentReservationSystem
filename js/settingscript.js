@@ -46,7 +46,7 @@ $(document).ready(function(){
 	$('#password_form').validate({
 	    rules: {
 		 password: {
-	        minlength: 2,
+	        minlength: 6,
 			maxlength: 75,
 	        required: true
 	      }

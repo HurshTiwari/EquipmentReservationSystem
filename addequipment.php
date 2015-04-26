@@ -1,7 +1,6 @@
 <!DOCTYPE php>
 <?php
-require_once '/inc/core.inc.php';
-if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
+require_once 'inc/core.inc.php';if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id']))
 {   $flag=0;
 	if(isset($_POST['ename'])&&!empty($_POST['ename'])&&isset($_POST['description'])&&!empty($_POST['description']))
 	{
@@ -72,8 +71,8 @@ else{
 }
 		
 	}
-	include_once("/common/head.php");
-    include_once("/common/navbar_top_side.php");
+	include_once("common/head.php");
+    include_once("common/navbar_top_side.php");
 ?>
 
 <div id="page-wrapper">
@@ -143,7 +142,7 @@ else{
        <!-- /#page-wrapper -->
     </div>
 <?php
-   include_once("/common/close.php");
+   include_once("common/close.php");
 	}
 	
 else{

@@ -1,8 +1,8 @@
 <!DOCTYPE php>
-<?php include_once("/inc/core.inc.php");
+<?php include_once("inc/core.inc.php");
 	if(isset($_SESSION['user_id'])&&!empty($_SESSION['user_id'])){
-include_once("/common/head.php");
-include_once("/common/navbar_top_side.php");
+include_once("common/head.php");
+include_once("common/navbar_top_side.php");
 
 ?>
 		<div id="page-wrapper">
@@ -46,7 +46,7 @@ include_once("/common/navbar_top_side.php");
 			<script type="text/javascript" src="js/giant.js"></script>
 			
 
-<?php include_once("/common/close.php");
+<?php include_once("common/close.php");
 }else 
 {
 header("login.php");
